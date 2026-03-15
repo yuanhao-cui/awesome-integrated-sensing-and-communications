@@ -20,11 +20,10 @@ sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 import argparse
 import numpy as np
 import matplotlib
-matplotlib.use('Agg')  # Non-interactive backend
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from matplotlib import rcParams
 
-# Set professional plotting style
 rcParams['font.size'] = 11
 rcParams['axes.labelsize'] = 12
 rcParams['axes.titlesize'] = 13
@@ -32,476 +31,321 @@ rcParams['legend.fontsize'] = 10
 rcParams['figure.dpi'] = 100
 
 from system_model import (
-    compute_rate,
-    compute_crb,
-    compute_phi_angle,
-    angle_to_channel,
-    angle_to_hfunc,
-    make_uniform_linear_array,
+    compute_rate, compute_crb, compute_phi_angle,
+    angle_to_channel, angle_to_hfunc, make_uniform_linear_array,
 )
 from bounds import (
-    pentagon_inner_bound,
-    gaussian_inner_bound,
-    semi_unitary_inner_bound,
-    outer_bound,
-    compute_corner_points,
+    pentagon_inner_bound, gaussian_inner_bound,
+    semi_unitary_inner_bound, outer_bound, compute_corner_points,
 )
-from optimization import (
-    optimize_sensing_rx,
-    optimize_comm_rx,
-)
+from optimization import optimize_sensing_rx, optimize_comm_rx
 
 
 def setup_angle_estimation(
-    M: int = 10,
-    Ns: int = 10,
-    Nc: int = 1,
-    theta_c_deg: float = 42.0,
-    sensing_snr_db: float = 20.0,
-    comm_snr_db: float = 33.0,
-    d: float = 0.5,
-) -> dict:
-    """Setup the angle estimation case study."""
+    M=10, Ns=10, Nc=1, theta_c_deg=42.0,
+    sensing_snr_db=20.0, comm_snr_db=33.0, d=0.5
+):
     theta_c = np.deg2rad(theta_c_deg)
-
-    # Communication channel: LoS from angle theta_c
     Hc = angle_to_channel(theta_c, M, Nc, d, d)
-
-    # Normalize Hc to match SNR
     Hc_norm = np.linalg.norm(Hc, 'fro')
     if Hc_norm > 0:
         Hc = Hc / Hc_norm * np.sqrt(M * Nc)
-
-    # Sensing channel function
     Hs_func = angle_to_hfunc(M, Ns, d, d)
-
-    # Noise variances from SNR
     P_T = 1.0
     sigma_s2 = P_T * 10 ** (-sensing_snr_db / 10)
     sigma_c2 = P_T * 10 ** (-comm_snr_db / 10)
-
-    # Compute correlation coefficient
     a_c = make_uniform_linear_array(M, d)(theta_c).flatten()
     a_s = make_uniform_linear_array(M, d)(np.deg2rad(30)).flatten()
     rho = np.abs(np.vdot(a_c, a_s)) / (np.linalg.norm(a_c) * np.linalg.norm(a_s))
-
     return {
-        'M': M, 'Ns': Ns, 'Nc': Nc,
-        'Hc': Hc,
-        'Hs_func': Hs_func,
-        'sigma_c2': sigma_c2,
-        'sigma_s2': sigma_s2,
-        'P_T': P_T,
-        'theta_c': theta_c,
-        'theta_c_deg': theta_c_deg,
-        'rho': rho,
-        'd': d,
+        'M': M, 'Ns': Ns, 'Nc': Nc, 'Hc': Hc, 'Hs_func': Hs_func,
+        'sigma_c2': sigma_c2, 'sigma_s2': sigma_s2, 'P_T': P_T,
+        'theta_c': theta_c, 'theta_c_deg': theta_c_deg, 'rho': rho, 'd': d,
     }
 
 
-def make_phi_angle_func(M: int, Ns: int, theta_target: float, d: float = 0.5, Jp: float = 0.0):
-    """Create Phi function for angle estimation."""
+def make_phi_angle_func(M, Ns, theta_target, d=0.5, Jp=0.0):
     def phi_func(Rx):
-        phi_val = compute_phi_angle(
-            Rx, 1, theta_target, M, Ns, d, d,
-            Jp=Jp if Jp > 0 else None
-        )
-        return phi_val
+        return compute_phi_angle(Rx, 1, theta_target, M, Ns, d, d,
+                                 Jp=Jp if Jp > 0 else None)
     return phi_func
 
 
-def generate_figure_a1(output_dir: str = "results", save: bool = True):
-    """
-    Figure A1: Capacity-Distortion Pareto curve (Rate vs CRB) for different SNR values.
-    
-    Shows how the tradeoff changes with SNR (5, 10, 15, 20 dB).
-    """
-    print("Generating Figure A1: Capacity-Distortion Pareto curve for different SNR values...")
+def save_figure(fig, filepath):
+    """Save figure safely without bbox_inches='tight' to avoid renderer issues."""
+    fig.savefig(filepath, dpi=200, facecolor='white', pad_inches=0.3)
+    print(f"  Saved to {filepath}")
 
+
+def generate_figure_a1(output_dir="results", save=True):
+    """Figure A1: Capacity-Distortion Pareto curve for different SNR values."""
+    print("Generating Figure A1: Pareto curves for different SNR values...")
     T = 3
-    snr_values = [5, 10, 15, 20]  # dB
-    theta_target = np.deg2rad(30)
-    
-    # Fixed comm SNR, varying sensing SNR
+    snr_values = [5, 10, 15, 20]
     comm_snr_db = 33.0
-    
-    fig, ax = plt.subplots(figsize=(10, 7))
-    
-    # Use a professional color palette
+    theta_target = np.deg2rad(30)
+
+    fig, ax = plt.subplots(figsize=(10, 7), constrained_layout=True)
     colors = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728']
     markers = ['o', 's', '^', 'd']
+    alpha_vals = np.linspace(0, 0.99, 15)
+
+    all_e_values = []
+    all_R_values = []
 
     for idx, sensing_snr_db in enumerate(snr_values):
         print(f"  Processing sensing SNR = {sensing_snr_db} dB...")
-        
-        params = setup_angle_estimation(
-            theta_c_deg=42.0,
-            sensing_snr_db=sensing_snr_db,
-            comm_snr_db=comm_snr_db
-        )
-        
-        M = params['M']
-        Ns = params['Ns']
-        Hc = params['Hc']
-        sigma_c2 = params['sigma_c2']
-        sigma_s2 = params['sigma_s2']
-        P_T = params['P_T']
-
-        # Prior information
+        params = setup_angle_estimation(theta_c_deg=42.0, sensing_snr_db=sensing_snr_db,
+                                        comm_snr_db=comm_snr_db)
+        M, Ns = params['M'], params['Ns']
         Jp_scalar = (180 / (np.pi * 5))**2
         phi_func = make_phi_angle_func(M, Ns, theta_target, params['d'], Jp_scalar)
         Jp = np.array([[Jp_scalar]])
 
-        # Compute corner points
         corners = compute_corner_points(
-            Hc, Hs_func=params['Hs_func'],
-            phi_func=phi_func, T=T,
-            sigma_c2=sigma_c2, sigma_s2=sigma_s2,
-            P_T=P_T, M=M, Jp=Jp, Nc=params['Nc']
-        )
+            params['Hc'], Hs_func=params['Hs_func'], phi_func=phi_func,
+            T=T, sigma_c2=params['sigma_c2'], sigma_s2=params['sigma_s2'],
+            P_T=params['P_T'], M=M, Jp=Jp, Nc=params['Nc'])
 
-        # Alpha values for tradeoff
-        alpha_vals = np.linspace(0, 0.99, 20)
-
-        # Gaussian inner bound (represents the Pareto frontier)
         e_gauss, R_gauss, _ = gaussian_inner_bound(
-            alpha_vals, Hc, params['Hs_func'], phi_func,
-            T, sigma_c2, sigma_s2, P_T, M, Jp, params['Nc'],
-        )
+            alpha_vals, params['Hc'], params['Hs_func'], phi_func,
+            T, params['sigma_c2'], params['sigma_s2'], params['P_T'],
+            M, Jp, params['Nc'])
 
         if len(e_gauss) > 0:
-            label = f'SNR = {sensing_snr_db} dB'
-            ax.plot(R_gauss, e_gauss, '-', color=colors[idx], 
-                    linewidth=2.5, label=label, marker=markers[idx], 
-                    markersize=4, markevery=5)
-            
-            # Mark corner points
-            ax.plot(corners['R_sc'], corners['e_min'], markers[idx],
-                    color=colors[idx], markersize=8, markeredgecolor='black',
-                    markeredgewidth=0.5)
-            ax.plot(corners['R_max'], corners['e_cs'], markers[idx],
-                    color=colors[idx], markersize=8, markeredgecolor='black',
-                    markeredgewidth=0.5, fillstyle='none')
+            valid = np.isfinite(e_gauss) & np.isfinite(R_gauss) & (e_gauss < 1e6)
+            e_g = e_gauss[valid]; R_g = R_gauss[valid]
+            if len(e_g) > 0:
+                all_e_values.extend(e_g); all_R_values.extend(R_g)
+                ax.plot(R_g, e_g, '-', color=colors[idx], linewidth=2.5,
+                        label=f'SNR = {sensing_snr_db} dB', marker=markers[idx],
+                        markersize=4, markevery=max(1, len(e_g)//6))
+                ax.plot(corners['R_sc'], corners['e_min'], markers[idx],
+                        color=colors[idx], markersize=8, markeredgecolor='black', markeredgewidth=0.5)
+                ax.plot(corners['R_max'], corners['e_cs'], markers[idx],
+                        color=colors[idx], markersize=8, markeredgecolor='black',
+                        markeredgewidth=0.5, fillstyle='none')
 
-    ax.set_xlabel('Communication Rate $R$ (nats/channel use)', fontsize=13)
-    ax.set_ylabel('Sensing CRB $e$', fontsize=13)
-    ax.set_title('Figure A1: Capacity-Distortion Pareto Curve for Different SNR Values\n'
-                 f'($T={T}$, $\theta_c=42°$, Comm SNR = {int(comm_snr_db)} dB)',
-                 fontsize=14, fontweight='bold')
-    ax.legend(loc='upper right', fontsize=11, framealpha=0.95)
+    if all_e_values:
+        ax.set_ylim(0, min(max(all_e_values) * 1.1, np.percentile(all_e_values, 95) * 2))
+
+    ax.set_xlabel('Communication Rate $R$ (nats/channel use)')
+    ax.set_ylabel('Sensing CRB $e$')
+    ax.set_title(f'Figure A1: Capacity-Distortion Pareto Curve for Different SNR Values\n'
+                 f'($T={T}$, $\\theta_c=42°$, Comm SNR = {int(comm_snr_db)} dB)',
+                 fontweight='bold')
+    ax.legend(loc='upper right', framealpha=0.95)
     ax.grid(True, alpha=0.3, linestyle='--')
     ax.set_xlim(left=0)
-    ax.set_ylim(bottom=0)
-
-    plt.tight_layout()
 
     if save:
-        out = Path(output_dir)
-        out.mkdir(parents=True, exist_ok=True)
-        filepath = out / 'figure_a1_pareto_snr.png'
-        fig.savefig(filepath, dpi=300, bbox_inches='tight', facecolor='white')
-        print(f"  Saved to {filepath}")
-
+        Path(output_dir).mkdir(parents=True, exist_ok=True)
+        save_figure(fig, Path(output_dir) / 'figure_a1_pareto_snr.png')
     return fig, ax
 
 
-def generate_figure_a2(output_dir: str = "results", save: bool = True):
-    """
-    Figure A2: CRB-Rate region with inner bounds (Pentagon, Gaussian, Semi-Unitary) 
-    and outer bound.
-    
-    Shows the complete achievable region characterization.
-    """
-    print("Generating Figure A2: CRB-Rate region with inner and outer bounds...")
-
+def generate_figure_a2(output_dir="results", save=True):
+    """Figure A2: CRB-Rate region with all bounds."""
+    print("Generating Figure A2: CRB-Rate region with bounds...")
     T = 3
     theta_target = np.deg2rad(30)
     params = setup_angle_estimation(theta_c_deg=42.0)
-
-    M = params['M']
-    Ns = params['Ns']
-    Hc = params['Hc']
-    sigma_c2 = params['sigma_c2']
-    sigma_s2 = params['sigma_s2']
-    P_T = params['P_T']
-
-    # Prior information
+    M, Ns = params['M'], params['Ns']
     Jp_scalar = (180 / (np.pi * 5))**2
     phi_func = make_phi_angle_func(M, Ns, theta_target, params['d'], Jp_scalar)
     Jp = np.array([[Jp_scalar]])
+    alpha_vals = np.linspace(0, 0.99, 15)
 
-    # Compute corner points
     corners = compute_corner_points(
-        Hc, Hs_func=params['Hs_func'],
-        phi_func=phi_func, T=T,
-        sigma_c2=sigma_c2, sigma_s2=sigma_s2,
-        P_T=P_T, M=M, Jp=Jp, Nc=params['Nc']
-    )
+        params['Hc'], Hs_func=params['Hs_func'], phi_func=phi_func,
+        T=T, sigma_c2=params['sigma_c2'], sigma_s2=params['sigma_s2'],
+        P_T=params['P_T'], M=M, Jp=Jp, Nc=params['Nc'])
 
-    print(f"  Corner points:")
-    print(f"    P_sc = (e_min={corners['e_min']:.4f}, R_sc={corners['R_sc']:.4f})")
-    print(f"    P_cs = (e_cs={corners['e_cs']:.4f}, R_max={corners['R_max']:.4f})")
-    print(f"    rho = {params['rho']:.4f}")
+    print(f"  P_sc = ({corners['e_min']:.6f}, {corners['R_sc']:.4f})")
+    print(f"  P_cs = ({corners['e_cs']:.6f}, {corners['R_max']:.4f})")
 
-    # Alpha values for tradeoff
-    alpha_vals = np.linspace(0, 0.99, 25)
-
-    # Pentagon bound
-    print("  Computing Pentagon inner bound...")
+    print("  Pentagon bound...")
     e_pent, R_pent = pentagon_inner_bound(
         (corners['e_min'], corners['R_sc']),
         (corners['e_cs'], corners['R_max']),
-        corners['e_min'], corners['R_max'],
-        n_points=100
-    )
+        corners['e_min'], corners['R_max'], n_points=60)
 
-    # Gaussian inner bound
-    print("  Computing Gaussian inner bound...")
+    print("  Gaussian bound...")
     e_gauss, R_gauss, _ = gaussian_inner_bound(
-        alpha_vals, Hc, params['Hs_func'], phi_func,
-        T, sigma_c2, sigma_s2, P_T, M, Jp, params['Nc'],
-    )
+        alpha_vals, params['Hc'], params['Hs_func'], phi_func,
+        T, params['sigma_c2'], params['sigma_s2'], params['P_T'],
+        M, Jp, params['Nc'])
 
-    # Semi-unitary inner bound
-    print("  Computing Semi-unitary inner bound...")
+    print("  Semi-unitary bound...")
     e_su, R_su, _ = semi_unitary_inner_bound(
-        alpha_vals, Hc, params['Hs_func'], phi_func,
-        T, sigma_c2, sigma_s2, P_T, M, M_sc=min(M, T),
-        Jp=Jp, Nc=params['Nc'], n_stiefel_samples=10,
-    )
+        alpha_vals, params['Hc'], params['Hs_func'], phi_func,
+        T, params['sigma_c2'], params['sigma_s2'], params['P_T'],
+        M, M_sc=min(M, T), Jp=Jp, Nc=params['Nc'], n_stiefel_samples=10)
 
-    # Outer bound
-    print("  Computing Outer bound...")
+    print("  Outer bound...")
     e_outer, R_outer, _ = outer_bound(
-        alpha_vals, Hc, params['Hs_func'], phi_func,
-        T, sigma_c2, sigma_s2, P_T, M, Jp, params['Nc'],
-    )
+        alpha_vals, params['Hc'], params['Hs_func'], phi_func,
+        T, params['sigma_c2'], params['sigma_s2'], params['P_T'],
+        M, Jp, params['Nc'])
 
-    # Plot
-    fig, ax = plt.subplots(figsize=(10, 8))
+    fig, ax = plt.subplots(figsize=(10, 8), constrained_layout=True)
 
-    # Pentagon bound (filled region)
-    ax.fill_between(R_pent, 0, e_pent, alpha=0.15, color='#1f77b4', label='Pentagon Bound (Achievable)')
-    ax.plot(R_pent, e_pent, 'b-', linewidth=1.5, alpha=0.7)
+    # Determine reasonable y-limit from valid data
+    all_e = []
+    for arr in [e_pent, e_gauss, e_su, e_outer]:
+        valid = arr[np.isfinite(arr) & (arr < 1e6)]
+        if len(valid) > 0: all_e.extend(valid)
+    e_max = min(max(all_e) * 1.1, np.percentile(all_e, 95) * 3) if all_e else 1.0
 
-    # Gaussian inner bound
-    if len(e_gauss) > 0:
-        ax.plot(R_gauss, e_gauss, 'g-', linewidth=2.5, label='Gaussian Inner Bound', marker='s', 
-                markersize=4, markevery=6)
+    # Filter data for plotting
+    def filter_data(e, R, emax=e_max):
+        valid = np.isfinite(e) & np.isfinite(R) & (e < emax) & (R >= 0)
+        return e[valid], R[valid]
 
-    # Semi-unitary inner bound
-    if len(e_su) > 0:
-        ax.plot(R_su, e_su, 'm--', linewidth=2.5, label='Semi-Unitary Inner Bound', marker='^',
-                markersize=4, markevery=6)
+    e_p, R_p = filter_data(e_pent, R_pent)
+    if len(e_p) > 0:
+        ax.fill_between(R_p, 0, e_p, alpha=0.15, color='#1f77b4', label='Pentagon Bound')
+        ax.plot(R_p, e_p, 'b-', linewidth=1.5, alpha=0.7)
 
-    # Outer bound
-    if len(e_outer) > 0:
-        ax.plot(R_outer, e_outer, 'r:', linewidth=2.5, label='Outer Bound', marker='d',
-                markersize=4, markevery=6)
+    e_g, R_g = filter_data(e_gauss, R_gauss)
+    if len(e_g) > 0:
+        ax.plot(R_g, e_g, 'g-', linewidth=2.5, label='Gaussian Inner Bound',
+                marker='s', markersize=4, markevery=3)
 
-    # Corner points
-    ax.plot(corners['R_sc'], corners['e_min'], 'ko', markersize=10, 
-            label='$P_{sc}$ (Sensing-Optimal)', zorder=5)
-    ax.plot(corners['R_max'], corners['e_cs'], 'k^', markersize=10, 
-            label='$P_{cs}$ (Comm-Optimal)', zorder=5)
-    
-    # Add annotations for corner points
-    ax.annotate('$P_{sc}$', 
-                xy=(corners['R_sc'], corners['e_min']),
-                xytext=(corners['R_sc'] - 0.3, corners['e_min'] + 0.5),
-                fontsize=11, fontweight='bold',
-                arrowprops=dict(arrowstyle='->', color='black', lw=0.8))
-    ax.annotate('$P_{cs}$', 
-                xy=(corners['R_max'], corners['e_cs']),
-                xytext=(corners['R_max'] - 0.5, corners['e_cs'] + 2),
-                fontsize=11, fontweight='bold',
-                arrowprops=dict(arrowstyle='->', color='black', lw=0.8))
+    e_s, R_s = filter_data(e_su, R_su)
+    if len(e_s) > 0:
+        ax.plot(R_s, e_s, 'm--', linewidth=2.5, label='Semi-Unitary Inner Bound',
+                marker='^', markersize=4, markevery=3)
 
-    ax.set_xlabel('Communication Rate $R$ (nats/channel use)', fontsize=13)
-    ax.set_ylabel('Sensing CRB $e$', fontsize=13)
-    ax.set_title('Figure A2: CRB-Rate Region with Inner and Outer Bounds\n'
-                 f'($T={T}$, $\theta_c=42°$, $\\rho \\approx {params["rho"]:.2f}$)',
-                 fontsize=14, fontweight='bold')
-    ax.legend(loc='upper right', fontsize=11, framealpha=0.95)
+    e_o, R_o = filter_data(e_outer, R_outer)
+    if len(e_o) > 0:
+        ax.plot(R_o, e_o, 'r:', linewidth=2.5, label='Outer Bound',
+                marker='d', markersize=4, markevery=3)
+
+    ax.plot(corners['R_sc'], corners['e_min'], 'ko', markersize=10, label='$P_{sc}$', zorder=5)
+    ax.plot(corners['R_max'], corners['e_cs'], 'k^', markersize=10, label='$P_{cs}$', zorder=5)
+
+    ax.set_xlabel('Communication Rate $R$ (nats/channel use)')
+    ax.set_ylabel('Sensing CRB $e$')
+    ax.set_title(f'Figure A2: CRB-Rate Region with Inner and Outer Bounds\n'
+                 f'($T={T}$, $\\theta_c=42°$, $\\rho \\approx {params["rho"]:.2f}$)',
+                 fontweight='bold')
+    ax.legend(loc='upper right', framealpha=0.95)
     ax.grid(True, alpha=0.3, linestyle='--')
     ax.set_xlim(left=0)
-    ax.set_ylim(bottom=0)
-
-    plt.tight_layout()
+    ax.set_ylim(0, e_max)
 
     if save:
-        out = Path(output_dir)
-        out.mkdir(parents=True, exist_ok=True)
-        filepath = out / 'figure_a2_bounds_comparison.png'
-        fig.savefig(filepath, dpi=300, bbox_inches='tight', facecolor='white')
-        print(f"  Saved to {filepath}")
-
+        Path(output_dir).mkdir(parents=True, exist_ok=True)
+        save_figure(fig, Path(output_dir) / 'figure_a2_bounds_comparison.png')
     return fig, ax
 
 
-def generate_figure_a3(output_dir: str = "results", save: bool = True):
-    """
-    Figure A3: Tradeoff curves for different antenna numbers.
-    
-    Shows how the CRB-Rate region changes with M (number of Tx antennas).
-    """
+def generate_figure_a3(output_dir="results", save=True):
+    """Figure A3: Tradeoff curves for different antenna numbers."""
     print("Generating Figure A3: Tradeoff curves for different antenna numbers...")
-
     T = 3
     theta_target = np.deg2rad(30)
-    antenna_configs = [4, 6, 8, 10]  # Different M values
-    
-    # Fixed SNR values
-    sensing_snr_db = 20.0
-    comm_snr_db = 33.0
-    theta_c_deg = 42.0
+    antenna_configs = [4, 6, 8, 10]
+    sensing_snr_db, comm_snr_db, theta_c_deg = 20.0, 33.0, 42.0
 
-    fig, ax = plt.subplots(figsize=(10, 7))
-    
-    # Professional color palette
+    fig, ax = plt.subplots(figsize=(10, 7), constrained_layout=True)
     colors = ['#e41a1c', '#377eb8', '#4daf4a', '#984ea3']
     markers = ['o', 's', '^', 'd']
+    alpha_vals = np.linspace(0, 0.99, 15)
+
+    all_e_values = []
 
     for idx, M in enumerate(antenna_configs):
         print(f"  Processing M = {M} antennas...")
-        
-        Ns = M  # Match sensing antennas to Tx antennas
-        Nc = 1  # Single comm Rx antenna
-        
-        params = setup_angle_estimation(
-            M=M, Ns=Ns, Nc=Nc,
-            theta_c_deg=theta_c_deg,
-            sensing_snr_db=sensing_snr_db,
-            comm_snr_db=comm_snr_db
-        )
-        
-        Hc = params['Hc']
-        sigma_c2 = params['sigma_c2']
-        sigma_s2 = params['sigma_s2']
-        P_T = params['P_T']
-
-        # Prior information
+        Ns, Nc = M, 1
+        params = setup_angle_estimation(M=M, Ns=Ns, Nc=Nc, theta_c_deg=theta_c_deg,
+                                        sensing_snr_db=sensing_snr_db, comm_snr_db=comm_snr_db)
         Jp_scalar = (180 / (np.pi * 5))**2
         phi_func = make_phi_angle_func(M, Ns, theta_target, params['d'], Jp_scalar)
         Jp = np.array([[Jp_scalar]])
 
-        # Compute corner points
         corners = compute_corner_points(
-            Hc, Hs_func=params['Hs_func'],
-            phi_func=phi_func, T=T,
-            sigma_c2=sigma_c2, sigma_s2=sigma_s2,
-            P_T=P_T, M=M, Jp=Jp, Nc=Nc
-        )
+            params['Hc'], Hs_func=params['Hs_func'], phi_func=phi_func,
+            T=T, sigma_c2=params['sigma_c2'], sigma_s2=params['sigma_s2'],
+            P_T=params['P_T'], M=M, Jp=Jp, Nc=Nc)
 
-        # Alpha values for tradeoff
-        alpha_vals = np.linspace(0, 0.99, 20)
-
-        # Gaussian inner bound
         e_gauss, R_gauss, _ = gaussian_inner_bound(
-            alpha_vals, Hc, params['Hs_func'], phi_func,
-            T, sigma_c2, sigma_s2, P_T, M, Jp, Nc,
-        )
+            alpha_vals, params['Hc'], params['Hs_func'], phi_func,
+            T, params['sigma_c2'], params['sigma_s2'], params['P_T'],
+            M, Jp, Nc)
 
         if len(e_gauss) > 0:
-            label = f'$M = N_s = {M}$'
-            ax.plot(R_gauss, e_gauss, '-', color=colors[idx], 
-                    linewidth=2.5, label=label, marker=markers[idx],
-                    markersize=4, markevery=5)
-            
-            # Mark corner points
-            ax.plot(corners['R_sc'], corners['e_min'], markers[idx],
-                    color=colors[idx], markersize=8, markeredgecolor='black',
-                    markeredgewidth=0.5)
-            ax.plot(corners['R_max'], corners['e_cs'], markers[idx],
-                    color=colors[idx], markersize=8, markeredgecolor='black',
-                    markeredgewidth=0.5, fillstyle='none')
+            valid = np.isfinite(e_gauss) & np.isfinite(R_gauss) & (e_gauss < 1e6)
+            e_g = e_gauss[valid]; R_g = R_gauss[valid]
+            if len(e_g) > 0:
+                all_e_values.extend(e_g)
+                ax.plot(R_g, e_g, '-', color=colors[idx], linewidth=2.5,
+                        label=f'$M = N_s = {M}$', marker=markers[idx],
+                        markersize=4, markevery=max(1, len(e_g)//6))
+                ax.plot(corners['R_sc'], corners['e_min'], markers[idx],
+                        color=colors[idx], markersize=8, markeredgecolor='black', markeredgewidth=0.5)
+                ax.plot(corners['R_max'], corners['e_cs'], markers[idx],
+                        color=colors[idx], markersize=8, markeredgecolor='black',
+                        markeredgewidth=0.5, fillstyle='none')
 
-    ax.set_xlabel('Communication Rate $R$ (nats/channel use)', fontsize=13)
-    ax.set_ylabel('Sensing CRB $e$', fontsize=13)
-    ax.set_title('Figure A3: Capacity-Distortion Tradeoff for Different Antenna Numbers\n'
-                 f'($T={T}$, $\theta_c={int(theta_c_deg)}°$, $N_c=1$)',
-                 fontsize=14, fontweight='bold')
-    ax.legend(loc='upper right', fontsize=11, framealpha=0.95, title='Configuration')
+    if all_e_values:
+        ax.set_ylim(0, min(max(all_e_values) * 1.1, np.percentile(all_e_values, 95) * 2))
+
+    ax.set_xlabel('Communication Rate $R$ (nats/channel use)')
+    ax.set_ylabel('Sensing CRB $e$')
+    ax.set_title(f'Figure A3: Capacity-Distortion Tradeoff for Different Antenna Numbers\n'
+                 f'($T={T}$, $\\theta_c={int(theta_c_deg)}°$, $N_c=1$)',
+                 fontweight='bold')
+    ax.legend(loc='upper right', framealpha=0.95, title='Configuration')
     ax.grid(True, alpha=0.3, linestyle='--')
     ax.set_xlim(left=0)
-    ax.set_ylim(bottom=0)
-
-    plt.tight_layout()
 
     if save:
-        out = Path(output_dir)
-        out.mkdir(parents=True, exist_ok=True)
-        filepath = out / 'figure_a3_antenna_tradeoff.png'
-        fig.savefig(filepath, dpi=300, bbox_inches='tight', facecolor='white')
-        print(f"  Saved to {filepath}")
-
+        Path(output_dir).mkdir(parents=True, exist_ok=True)
+        save_figure(fig, Path(output_dir) / 'figure_a3_antenna_tradeoff.png')
     return fig, ax
 
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Generate simulation figures for P0-A ISAC Capacity-Distortion baseline"
-    )
-    parser.add_argument(
-        "--output-dir", type=str, default="results",
-        help="Directory to save figures (default: results)"
-    )
-    parser.add_argument(
-        "--figures", type=str, default="all",
-        help="Figures to generate: all, a1, a2, a3, or comma-separated (default: all)"
-    )
-    parser.add_argument(
-        "--dpi", type=int, default=300,
-        help="Figure DPI (default: 300)"
-    )
+        description="Generate P0-A ISAC Capacity-Distortion baseline figures")
+    parser.add_argument("--output-dir", default="results")
+    parser.add_argument("--figures", default="all",
+                        help="all, a1, a2, a3, or comma-separated")
     args = parser.parse_args()
 
     output_dir = args.output_dir
     figures = args.figures.lower()
 
     print("=" * 70)
-    print("P0-A Baseline: ISAC Capacity-Distortion Tradeoff - Figure Generation")
+    print("P0-A Baseline: ISAC Capacity-Distortion - Figure Generation")
     print("=" * 70)
-    print(f"Output directory: {output_dir}")
-    print(f"Figures to generate: {figures}")
-    print(f"DPI: {args.dpi}")
+    print(f"Output: {output_dir} | Figures: {figures}")
     print()
-
     Path(output_dir).mkdir(parents=True, exist_ok=True)
-
-    results = {}
 
     if figures in ["all", "a1"]:
         print("-" * 70)
-        fig_a1, ax_a1 = generate_figure_a1(output_dir)
-        results['fig_a1'] = (fig_a1, ax_a1)
+        fig, ax = generate_figure_a1(output_dir)
         plt.close()
         print()
 
     if figures in ["all", "a2"]:
         print("-" * 70)
-        fig_a2, ax_a2 = generate_figure_a2(output_dir)
-        results['fig_a2'] = (fig_a2, ax_a2)
+        fig, ax = generate_figure_a2(output_dir)
         plt.close()
         print()
 
     if figures in ["all", "a3"]:
         print("-" * 70)
-        fig_a3, ax_a3 = generate_figure_a3(output_dir)
-        results['fig_a3'] = (fig_a3, ax_a3)
+        fig, ax = generate_figure_a3(output_dir)
         plt.close()
         print()
 
     print("=" * 70)
     print(f"Done! Figures saved to {output_dir}/")
     print("=" * 70)
-    print("\nGenerated figures:")
-    if 'fig_a1' in results:
-        print(f"  - figure_a1_pareto_snr.png: Pareto curves for different SNR values")
-    if 'fig_a2' in results:
-        print(f"  - figure_a2_bounds_comparison.png: CRB-Rate region with bounds")
-    if 'fig_a3' in results:
-        print(f"  - figure_a3_antenna_tradeoff.png: Tradeoff curves for different antenna numbers")
 
 
 if __name__ == "__main__":

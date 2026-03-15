@@ -260,7 +260,7 @@ def covariance_shaping(
     problem = cp.Problem(objective, constraints)
 
     try:
-        problem.solve(solver=cp.SCS, eps=1e-8, max_iters=20000, verbose=False)
+        problem.solve(solver=cp.SCS, eps=1e-4, max_iters=2000, verbose=False)
 
         if problem.status in ["optimal", "optimal_inaccurate"] and Rx_var.value is not None:
             Rx_opt = np.array(Rx_var.value, dtype=np.complex128)
