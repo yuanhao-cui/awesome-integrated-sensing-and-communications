@@ -56,21 +56,26 @@ If you find this repository useful, please cite our survey:
 Our survey organizes ISAC research along **five evolutionary axes**:
 
 ```
-                     ┌─────────────────────────────────────────────┐
-                     │        🧬 EVOLUTION OF ISAC                  │
-                     └─────────────────────────────────────────────┘
-                                         │
-           ┌─────────────────┬───────────┼───────────┬─────────────────┐
-           │                 │           │           │                 │
-           ▼                 ▼           ▼           ▼                 ▼
-     ┌──────────┐    ┌──────────┐ ┌──────────┐ ┌──────────┐   ┌──────────┐
-     │  📡 RF → │    │ 🌐Single│ │  🧠Single│ │  🔒Dual- │   │  📋      │
-     │  Optical │    │ → Multi │ │ → Multi  │ │  Domain  │   │ Standard │
-     │  ISAC    │    │  Cell   │ │  Modal   │ │  Sec/Priv│   │ -ization │
-     └──────────┘    └──────────┘ └──────────┘ └──────────┘   └──────────┘
-         │               │            │            │               │
-    Section II      Section III   Section IV    Section V      Section VI
-    RF & Optical    Network Arc.  Edge Intel.   Security       3GPP/IEEE/ITU
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                      🧬 THE EVOLUTION OF ISAC
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📡 SPECTRUM     Sub-6 GHz ●━━━━━●━━━━━●━━━━━●━━━━━●━━━━━▶ Optical
+                     │    mmWave  THz   VLC   FSO   Photonic
+                     │
+🌐 NETWORK      Single-Cell ●━━━━━●━━━━━●━━━━━●━━━━━●━━━━━▶ Multi-Cell
+                     │    Multi-BS  CF-MIMO  UAV   LAWN
+                     │
+🧠 SENSING      Single-Modal ●━━━━━●━━━━━●━━━━━●━━━━━●━━━━━▶ Multi-Modal
+                     │    CSI   DL-Detect  Fusion  Edge-AI  Found.
+                     │
+🔒 SECURITY     Separate ●━━━━━●━━━━━●━━━━━●━━━━━●━━━━━▶ Dual-Domain
+                     │    PLS  Co-design  Privacy  Adversarial
+                     │
+📋 STANDARD     Proprietary ●━━━━━●━━━━━●━━━━━●━━━━━●━━━━━▶ 6G
+                     │    3GPP-Study  802.11bf  IMT-2030  Rel-20
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                  2018      2020      2022      2024      2026
 ```
 
 | Axis | Evolution | Key Topics |
