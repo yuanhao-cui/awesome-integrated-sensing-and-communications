@@ -1,0 +1,48 @@
+name: 📖 Recommend a Paper
+description: Suggest a paper to add to the list
+labels: ["paper"]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for suggesting a paper!
+  - type: input
+    id: title
+    attributes:
+      label: Paper Title
+      placeholder: "Enter the paper title"
+    validations:
+      required: true
+  - type: input
+    id: link
+    attributes:
+      label: Paper Link
+      placeholder: "arXiv / IEEE / ACM link"
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - Surveys
+        - Theory & Bounds
+        - Waveform Design
+        - Antenna Technology
+        - Optical ISAC
+        - Network Architecture
+        - AI/ML for ISAC
+        - Security & Privacy
+        - Standardization
+        - Applications
+    validations:
+      required: true
+  - type: input
+    id: code
+    attributes:
+      label: Code Link (if any)
+      placeholder: "GitHub link or N/A"
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional Notes
+      placeholder: "Brief description of the paper's contribution"

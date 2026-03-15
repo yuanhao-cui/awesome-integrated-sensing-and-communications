@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Coverage
+.coverage
+htmlcov/
+coverage.xml
+
+# Results (generated)
+code/baselines/*/results/*.png
+code/baselines/*/results/*.pdf
+code/baselines/*/results/*.csv
+!code/baselines/*/results/.gitkeep
+
+# Temp
+*.tmp
+*.log

@@ -1,0 +1,38 @@
+name: 💻 Contribute a Baseline
+description: Propose or submit a new code baseline
+labels: ["baseline", "enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please ensure your baseline meets our quality standards:
+        - ≥80% test coverage
+        - All tests pass
+        - Mathematical background in README
+        - Jupyter notebook demo
+  - type: input
+    id: method
+    attributes:
+      label: Method Name
+      placeholder: "e.g., OTFS-ISAC"
+    validations:
+      required: true
+  - type: input
+    id: paper
+    attributes:
+      label: Reference Paper
+      placeholder: "arXiv/IEEE link"
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      placeholder: "What does this baseline implement?"
+    validations:
+      required: true
+  - type: textarea
+      id: status
+      attributes:
+        label: Current Status
+        placeholder: "How complete is the implementation?"

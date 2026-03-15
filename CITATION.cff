@@ -1,0 +1,44 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite our survey paper."
+title: "Awesome Integrated Sensing and Communications"
+abstract: >-
+  A curated list of Integrated Sensing and Communications (ISAC) resources,
+  accompanying the survey "ISAC Over the Years: An Evolution Perspective".
+authors:
+  - family-names: Zhang
+    given-names: Di
+  - family-names: Cui
+    given-names: Yuanhao
+    orcid: "https://orcid.org/0000-0002-5794-3867"
+  - family-names: Cao
+    given-names: Xiaowen
+  - family-names: Su
+    given-names: Nanchi
+  - family-names: Gong
+    given-names: Yi
+  - family-names: Liu
+    given-names: Fan
+  - family-names: Yuan
+    given-names: Weijie
+  - family-names: Jing
+    given-names: Xiaojun
+  - family-names: Zhang
+    given-names: J. Andrew
+  - family-names: Xu
+    given-names: Jie
+  - family-names: Masouros
+    given-names: Christos
+  - family-names: Niyato
+    given-names: Dusit
+  - family-names: Di Renzo
+    given-names: Marco
+date-released: "2026"
+license: CC-BY-SA-4.0
+repository-code: "https://github.com/yuanhao-cui/awesome-integrated-sensing-and-communications"
+keywords:
+  - ISAC
+  - integrated sensing and communications
+  - joint radar and communications
+  - 6G
+  - wireless sensing
+  - survey
