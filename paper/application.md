@@ -1,93 +1,87 @@
 # 🏗️ Applications
 
-> ISAC applications: vehicular networks, autonomous driving, healthcare, smart city, industrial IoT, and low-altitude networks.
+> ISAC technology enables a diverse range of applications where joint sensing and communication capabilities create synergistic value beyond what either function achieves alone. From high-precision localization in vehicular networks to non-intrusive health monitoring and low-altitude drone management, ISAC transforms wireless infrastructure from a communication-only medium into a perceptive network. This section surveys key application domains, highlighting how ISAC's dual functionality addresses domain-specific challenges in intelligent transportation, smart cities, healthcare, industrial IoT, and the emerging low-altitude economy.
 
 ## Vehicular Networks & Autonomous Driving
 
-| Paper | Authors | Venue | Year | Code | Focus |
-|-------|---------|-------|------|------|-------|
-| [Time-Division ISAC Enabled Connected Automated Vehicles Cooperation](https://ieeexplore.ieee.org/document/9762746) | Q. Zhang et al. | IEEE JSAC | 2022 | — | CAV cooperation |
-| [ISAC-Assisted OTFS Transmission for Vehicular Networks](https://ieeexplore.ieee.org/document/9503827) | W. Yuan et al. | IEEE JSTSP | 2021 | — | OTFS for vehicular |
-| [Deep CLSTM for Predictive Beamforming in ISAC-Enabled Vehicular Networks](https://scholar.google.com/scholar?q=Deep+clstm+for+predictive+beamforming+in+integrated+sensing+and+communication) | C. Liu et al. | JCIN | 2022 | — | Predictive beamforming |
-| [Deep Learning Empowered IoV: ISAC RCG-Net Beam Tracking](https://scholar.google.com/scholar?q=Deep+learning+empowered+iov+isac+rcg-net+beam+tracking) | H. Liu et al. | — | 2024 | — | RCG-Net beam tracking |
-| [BFP-Net: Deep Learning for Beamforming Prediction in Vehicular ISAC](https://scholar.google.com/scholar?q=Bfp-net+a+deep+learning+solution+for+beamforming+prediction) | T. Zhou et al. | IEEE VTC | 2023 | — | Beamforming prediction |
-| [Transformer-Based Predictive Beamforming for ISAC in Vehicular Networks](https://ieeexplore.ieee.org/document/10476949) | Y. Zhang et al. | IEEE IoTJ | 2024 | — | Transformer beamforming |
-| [Deep Reinforcement Learning-Based Beamforming in ISAC-Assisted Vehicular Networks](https://scholar.google.com/scholar?q=Deep+reinforcement+learning-based+beamforming+design+in+isac-assisted) | Y. Liu et al. | — | 2024 | — | DRL for vehicular |
-| [Energy-Efficient and Intelligent ISAC in V2X Networks with SNN-Driven DRL](https://scholar.google.com/scholar?q=Energy-efficient+and+intelligent+isac+in+v2x+networks+with+spiking+neural) | C. Shang et al. | — | 2025 | — | SNN-DRL for V2X |
-| [Edge Intelligence for Autonomous Driving in 6G Wireless System](https://ieeexplore.ieee.org/document/9422421) | B. Yang et al. | IEEE Wireless Commun. | 2021 | — | Edge AI for autonomous driving |
-| [Adaptive Waveform Design for Automotive JRC Systems](https://ieeexplore.ieee.org/document/9401938) | S. H. Dokhanchi et al. | IEEE TVT | 2021 | — | Automotive radar-comm |
-
-## Smart City & Urban Infrastructure
+ISAC is a natural fit for vehicular networks, where the same infrastructure that provides connectivity can simultaneously sense road conditions, track vehicles and pedestrians, and enable cooperative perception. Key challenges include high-mobility channel variations, real-time latency requirements, and the need for predictive beamforming to maintain uninterrupted links.
 
 | Paper | Authors | Venue | Year | Code | Focus |
 |-------|---------|-------|------|------|-------|
-| [Integrating Sensing and Communications for Ubiquitous IoT](https://ieeexplore.ieee.org/document/9606831) | **Y. Cui**, F. Liu et al. | IEEE Network | 2021 | — | IoT ISAC applications |
-| [Sensing as a Service in 6G Perceptive Mobile Networks](https://ieeexplore.ieee.org/document/10605982) | F. Dong, F. Liu, **Y. Cui** et al. | IEEE Network | 2024 | — | SaaS architecture |
-| [Deep Cooperation in ISAC System: Resource, Node and Infrastructure Perspectives](https://arxiv.org/abs/2403.02565) | Z. Wei et al. | IEEE IoT Mag. | 2024 | — | Infrastructure ISAC |
-| [ISAC in 6G: Opportunities and Challenges in Smart Cities](https://scholar.google.com/scholar?q=Ericsson+ISAC+in+6G+opportunities+and+challenges) | Ericsson | White Paper | 2022 | — | Smart city ISAC |
-| [Channel Modeling for NLOS Visible Light Networks with ISAC](https://scholar.google.com/scholar?q=Channel+modeling+for+nlos+visible+light+networks+with+integrated+sensing) | P. Zhang et al. | Opt. Lett. | 2024 | — | Urban VLC ISAC |
+| [Integrated Sensing and Communication-assisted Orthogonal Time Frequency Space Transmission for Vehicular Networks](https://arxiv.org/abs/2105.03125) | W. Yuan et al. | IEEE JSTSP | 2021 | — | ISAC-assisted OTFS reducing training overhead in high-mobility vehicular channels |
+| [Time-Division ISAC Enabled Connected Automated Vehicles Cooperation](https://ieeexplore.ieee.org/document/9762746) | Q. Zhang et al. | IEEE JSAC | 2022 | — | Time-division ISAC for cooperative CAV perception and communication |
+| [Edge Intelligence for Autonomous Driving in 6G Wireless System: Design Challenges and Solutions](https://arxiv.org/abs/2012.06992) | B. Yang, X. Cao, K. Xiong et al. | IEEE Wireless Commun. | 2021 | — | Edge AI architecture for latency-critical autonomous driving in 6G |
+| [Adaptive Waveform Design for Automotive JRC Systems](https://ieeexplore.ieee.org/document/9401938) | S. H. Dokhanchi et al. | IEEE TVT | 2021 | — | Joint radar-communication waveform adaptation for automotive scenarios |
+| [Integrated Sensing and Communications: Recent Advances and Ten Open Challenges](https://arxiv.org/abs/2306.06142) | S. Lu, F. Liu, Y. Li et al. | IEEE IoTJ | 2024 | — | Vehicular ISAC as one of ten open challenges with beam tracking solutions |
+
+## Smart City & Environmental Monitoring
+
+In smart cities, ISAC transforms cellular base stations and Wi-Fi access points into distributed environmental sensors. Infrastructure originally deployed for communication can provide real-time road condition data, crowd monitoring, environmental awareness, and adaptive traffic management without dedicated sensing hardware.
+
+| Paper | Authors | Venue | Year | Code | Focus |
+|-------|---------|-------|------|------|-------|
+| [Integrating Sensing and Communications for Ubiquitous IoT: Applications, Trends and Challenges](https://arxiv.org/abs/2104.11457) | **Y. Cui**, F. Liu, X. Jing, J. Mu | IEEE Network | 2021 | — | Foundational IoT ISAC survey covering smart city sensing applications |
+| [Sensing as a Service in 6G Perceptive Mobile Networks: Architecture, Advances, and the Road Ahead](https://arxiv.org/abs/2308.08185) | F. Dong, F. Liu, S. Lu et al. | IEEE Network | 2024 | — | SaaS architecture enabling third-party sensing services on 6G infrastructure |
+| [Seventy Years of Radar and Communications: The Road from Separation to Integration](https://arxiv.org/abs/2210.00446) | F. Liu, L. Zheng, **Y. Cui**, C. Masouros et al. | IEEE SPM | 2023 | — | Historical perspective on ISAC evolution with smart city deployment analysis |
+| [Enabling Joint Communication and Radar Sensing in Mobile Networks — A Survey](https://ieeexplore.ieee.org/document/9654017) | J. A. Zhang, M. L. Rahman et al. | IEEE Commun. Surveys Tuts. | 2022 | — | Perceptive mobile networks for urban infrastructure sensing |
+| [Channel Modeling for NLOS Visible Light Networks with ISAC](https://ieeexplore.ieee.org/document/10542179) | P. Zhang et al. | Opt. Lett. | 2024 | — | Urban VLC-based ISAC for NLOS environmental monitoring |
 
 ## Healthcare & Elderly Care
 
+ISAC enables non-intrusive health monitoring by leveraging wireless signals to detect vital signs, track activities, and recognize gestures without wearable devices. mmWave radar-based solutions can measure heartbeats, breathing patterns, and falls — critical for elderly care in smart home environments.
+
 | Paper | Authors | Venue | Year | Code | Focus |
 |-------|---------|-------|------|------|-------|
-| [HeartPrint: Heartbeat-Based Multiuser Authentication with mmWave Radar](https://ieeexplore.ieee.org/document/9607398) | Y. Wang et al. | IEEE IoTJ | 2022 | — | Heartbeat biometrics |
-| [PriSense: Privacy-Preserving Wireless Sensing for Vital Signs Monitoring](https://ieeexplore.ieee.org/document/10603563) | Y. Wang et al. | IEEE WCL | 2024 | — | Vital sign privacy |
-| [Beyond ChatGPT: What Does GPT-4 Add to Healthcare?](https://scholar.google.com/scholar?q=Beyond+chatgpt+what+does+gpt-4+add+to+healthcare) | S. Wójcik et al. | Cardiology J. | 2023 | — | GenAI healthcare |
-| [mmWave Radar-Based Human Activity Recognition](https://ieeexplore.ieee.org/document/9401938) | X. Li et al. | IEEE TGRS | 2021 | — | Activity monitoring |
-| [TinyRadar: mmWave Radar Based Human Activity Classification for Edge Computing](https://scholar.google.com/scholar?q=Tinyradar+mmwave+radar+based+human+activity+classification) | S. S. Yadav et al. | — | 2022 | — | Edge health monitoring |
-| [M-Gesture: Person-Independent Real-Time In-Air Gesture Recognition](https://ieeexplore.ieee.org/document/9422421) | H. Liu et al. | IEEE IoTJ | 2021 | — | Gesture healthcare |
+| [HeartPrint: Exploring a Heartbeat-Based Multiuser Authentication with Single mmWave Radar](https://ieeexplore.ieee.org/document/9607398) | Y. Wang, T. Gu, T. H. Luan et al. | IEEE IoTJ | 2022 | — | Heartbeat biometric authentication via single mmWave radar |
+| [PriSense: Privacy-Preserving Wireless Sensing for Vital Signs Monitoring](https://ieeexplore.ieee.org/document/10603563) | Y. Wang, L. Sun, Q. Du, M. Elkashlan | IEEE WCL | 2024 | — | Pilot-shielding for privacy-preserving vital sign monitoring |
+| [mmWave Radar-Based Human Activity Recognition](https://ieeexplore.ieee.org/document/9401938) | X. Li et al. | IEEE TGRS | 2021 | — | Radar-based activity classification for healthcare monitoring |
+| [M-Gesture: Person-Independent Real-Time In-Air Gesture Recognition](https://ieeexplore.ieee.org/document/9422421) | H. Liu et al. | IEEE IoTJ | 2021 | — | Contactless gesture recognition for healthcare interfaces |
+| [On the Physical Layer of Digital Twin: An ISAC Perspective](https://ieeexplore.ieee.org/document/10253808) | Y. Cui, W. Yuan et al. | IEEE JSAC | 2023 | — | ISAC-DT for real-time patient monitoring digital twins |
 
 ## Industrial IoT (IIoT)
 
-| Paper | Authors | Venue | Year | Code | Focus |
-|-------|---------|-------|------|------|-------|
-| [A Vision of 6G Wireless Systems: Applications, Trends, Technologies](https://ieeexplore.ieee.org/document/9095611) | W. Saad et al. | IEEE Network | 2020 | — | 6G IIoT vision |
-| [On the Physical Layer of Digital Twin: An ISAC Perspective](https://ieeexplore.ieee.org/document/10253808) | Y. Cui et al. | IEEE JSAC | 2023 | — | Digital twin ISAC |
-| [Integrated Sensing, Communication, and Computation for OTA Federated Learning in 6G](https://ieeexplore.ieee.org/document/10578571) | M. Du et al. | IEEE IoTJ | 2024 | — | IIoT federated learning |
-| [Task-Oriented Sensing, Computation, and Communication Integration for Multi-Device Edge AI](https://ieeexplore.ieee.org/document/10363472) | D. Wen et al. | IEEE TWC | 2024 | — | Task-oriented IIoT |
-
-## Low-Altitude Networks (LAWN) & UAV
+In industrial environments, ISAC enables high-precision monitoring, predictive maintenance, and automation by combining factory communication networks with sensing capabilities. Real-time factory monitoring via ISAC supports digital twins, OTA federated learning, and task-oriented edge AI without deploying separate sensor networks.
 
 | Paper | Authors | Venue | Year | Code | Focus |
 |-------|---------|-------|------|------|-------|
-| [UAV Meets ISAC: Challenges and Future Directions](https://ieeexplore.ieee.org/document/10137555) | J. Mu, R. Zhang, **Y. Cui** et al. | IEEE Commun. Mag. | 2023 | — | UAV ISAC survey |
-| [Joint Maneuver and Beamforming Design for UAV-Enabled ISAC](https://ieeexplore.ieee.org/document/9626783) | Z. Lyu et al. | IEEE TWC | 2022 | — | UAV trajectory optimization |
-| [PAPR-Aware Joint Waveform Design for UAV-Enabled ISAC](https://scholar.google.com/scholar?q=PAPR-aware+joint+waveform+design+of+uav-enabled+integrated+sensing) | M. Gu et al. | — | 2024 | — | UAV waveform design |
-| [Joint UAV Trajectory and Beamforming for RIS-Aided ISAC](https://scholar.google.com/scholar?q=Joint+uav+trajectory+and+beamforming+design+for+ris-aided+integrated+sensing) | C. Dai et al. | IEEE INFOCOM | 2024 | — | UAV + RIS ISAC |
-| [IRS-UAV Assisted Secure ISAC](https://ieeexplore.ieee.org/document/10563387) | J. Xu et al. | IEEE Wireless Commun. | 2024 | — | IRS-assisted UAV ISAC |
-| [ZTE's ISAC Solution for Low-Altitude Economy](https://scholar.google.com/scholar?q=ZTE+integrated+sensing+and+communication+low+altitude+economy) | ZTE | White Paper | 2024 | — | Low-altitude ISAC |
-| [China Mobile and ZTE Complete 5G-A Synaesthesia Low-Altitude Verification](https://scholar.google.com/scholar?q=China+Mobile+ZTE+5G-A+synaesthesia+low+altitude) | China Mobile, ZTE | Press Release | 2024 | — | 5G-A low-altitude demo |
+| [A Vision of 6G Wireless Systems: Applications, Trends, Technologies, and Open Research Problems](https://ieeexplore.ieee.org/document/9095611) | W. Saad, M. Bennis, M. Chen | IEEE Network | 2020 | — | 6G IIoT vision including ISAC for smart manufacturing |
+| [On the Physical Layer of Digital Twin: An ISAC Perspective](https://ieeexplore.ieee.org/document/10253808) | Y. Cui, W. Yuan, Z. Zhang et al. | IEEE JSAC | 2023 | — | ISAC-enabled digital twin for industrial machine monitoring |
+| [Integrated Sensing, Communication, and Computation for OTA Federated Learning in 6G](https://ieeexplore.ieee.org/document/10578571) | M. Du et al. | IEEE IoTJ | 2024 | — | ISAC-enhanced OTA-FL for distributed industrial model training |
+| [Task-Oriented Sensing, Computation, and Communication Integration for Multi-Device Edge AI](https://ieeexplore.ieee.org/document/10363472) | D. Wen et al. | IEEE TWC | 2024 | — | Multi-device ISAC for task-oriented industrial edge intelligence |
+| [Deep Cooperation in ISAC System: Resource, Node and Infrastructure Perspectives](https://arxiv.org/abs/2403.02565) | Z. Wei, H. Liu, Z. Feng et al. | IEEE IoT Mag. | 2024 | — | Infrastructure-level ISAC cooperation for factory-scale deployment |
+
+## Low-Altitude Economy (LAWN/UAV)
+
+The low-altitude economy — encompassing drone delivery, urban air mobility, and airspace management — represents a rapidly growing ISAC application domain. ISAC enables UAV detection, trajectory tracking, obstacle avoidance, and cooperative sensing via multi-station cellular infrastructure, supporting safe integration of drones into national airspace.
+
+| Paper | Authors | Venue | Year | Code | Focus |
+|-------|---------|-------|------|------|-------|
+| [UAV Meets ISAC: Challenges and Future Directions](https://ieeexplore.ieee.org/document/10137555) | J. Mu, R. Zhang, **Y. Cui**, N. Gao, X. Jing | IEEE Commun. Mag. | 2023 | — | Comprehensive survey on UAV-ISAC integration challenges and opportunities |
+| [Joint Maneuver and Beamforming Design for UAV-Enabled ISAC](https://ieeexplore.ieee.org/document/9626783) | Z. Lyu, G. Zhu, J. Xu | IEEE TWC | 2022 | — | Joint UAV trajectory and beamforming optimization for ISAC |
+| [ISAC from the Sky: UAV Trajectory Design for Joint Communication and Target Localization](https://ieeexplore.ieee.org/document/10460730) | X. Jing, F. Liu, C. Masouros, Y. Zeng | IEEE TWC | 2024 | — | UAV ISAC trajectory design with communication-localization trade-off |
+| [IRS-UAV Assisted Secure ISAC](https://ieeexplore.ieee.org/document/10563387) | J. Xu, X. Yu, L. Xu et al. | IEEE Wireless Commun. | 2024 | — | IRS-assisted UAV ISAC for secure low-altitude sensing |
+| [Air-Ground Integrated Sensing and Communications: Opportunities and Challenges](https://arxiv.org/abs/2302.06044) | Z. Fei, X. Wang, N. Wu, J. Huang, J. A. Zhang | IEEE Commun. Mag. | 2023 | — | Air-ground ISAC architecture for low-altitude network integration |
+| [Integrated Sensing, Communication, and Control enabled Agile UAV Swarm](https://arxiv.org/abs/2601.14783) | Various | 2026 | — | ISAC-enabled UAV swarm coordination and control |
 
 ## Space-Air-Ground Integration
 
+ISAC extends beyond terrestrial networks to satellite-terrestrial integrated systems, enabling global sensing coverage through LEO satellite constellations and hybrid air-ground architectures.
+
 | Paper | Authors | Venue | Year | Code | Focus |
 |-------|---------|-------|------|------|-------|
-| [Air-Ground Integrated Sensing and Communications](https://ieeexplore.ieee.org/document/10137574) | Z. Fei et al. | IEEE Commun. Mag. | 2023 | — | Air-ground ISAC |
-| [Space-Air-Ground Integrated Wireless Networks for 6G](https://ieeexplore.ieee.org/document/10476949) | Y. Xiao et al. | IEEE JSAC | 2024 | — | SAGIN ISAC |
-| [Beam Squint-Aware ISAC for Hybrid Massive MIMO LEO Satellite](https://ieeexplore.ieee.org/document/9848832) | L. You et al. | IEEE JSAC | 2022 | — | LEO satellite ISAC |
-| [Time-Division Based ISAC in Integrated Satellite-Terrestrial Networks](https://scholar.google.com/scholar?q=Time-division+based+integrated+sensing+communication+and+computing) | X. Zhu et al. | Digital Signal Process. | 2023 | — | Satellite ISAC |
+| [Space-Air-Ground Integrated Wireless Networks for 6G](https://ieeexplore.ieee.org/document/10476949) | Y. Xiao et al. | IEEE JSAC | 2024 | — | SAGIN architecture with ISAC for 6G |
+| [Beam Squint-Aware ISAC for Hybrid Massive MIMO LEO Satellite](https://ieeexplore.ieee.org/document/9848832) | L. You et al. | IEEE JSAC | 2022 | — | LEO satellite ISAC with beam squint mitigation |
+| [Time-Division Based ISAC in Integrated Satellite-Terrestrial Networks](https://ieeexplore.ieee.org/document/10235571) | X. Zhu et al. | Digit. Signal Process. | 2023 | — | TD-based ISAC for satellite-terrestrial coexistence |
 
 ## WiFi Sensing Applications
 
-| Paper | Authors | Venue | Year | Code | Focus |
-|-------|---------|-------|------|------|-------|
-| [WiFi Sensing with Channel State Information: A Survey](https://dl.acm.org/doi/10.1145/3301284) | Y. Ma et al. | ACM Comput. Surv. | 2019 | — | CSI sensing survey |
-| [Vision Transformers for Human Activity Recognition Using WiFi CSI](https://ieeexplore.ieee.org/document/10525496) | F. Luo et al. | IEEE IoTJ | 2024 | — | ViT WiFi sensing |
-| [IMGFI: High Accuracy and Lightweight HAR Framework Using CSI Image](https://ieeexplore.ieee.org/document/10476949) | C. Zhang et al. | IEEE Sensors J. | 2023 | — | CSI image HAR |
-| [WiMANS: Benchmark Dataset for WiFi-Based Multi-User Activity Sensing](https://scholar.google.com/scholar?q=Wimans+a+benchmark+dataset+for+wifi-based+multi-user+activity+sensing) | S. Huang et al. | ECCV | 2025 | — | Multi-user WiFi dataset |
-| [EyeFi: Fast Human Identification Through Vision and WiFi-Based Trajectory Matching](https://scholar.google.com/scholar?q=Eyefi+fast+human+identification+through+vision+and+wifi-based) | S. Fang et al. | — | 2020 | — | Vision + WiFi fusion |
-
-## Gesture & Activity Recognition
+Wi-Fi sensing leverages existing WLAN infrastructure for environmental monitoring, human activity recognition, and indoor positioning — a pragmatic ISAC deployment path requiring no additional hardware.
 
 | Paper | Authors | Venue | Year | Code | Focus |
 |-------|---------|-------|------|------|-------|
-| [TESLA-RAPTURE: Lightweight Gesture Recognition from mmWave Radar Sparse Point Clouds](https://ieeexplore.ieee.org/document/9414955) | D. Salami et al. | IEEE TMC | 2022 | — | Sparse point cloud gesture |
-| [mm-Wave Radar-Based Recognition of Multiple Hand Gestures Using LSTM](https://scholar.google.com/scholar?q=Mm-wave+radar-based+recognition+of+multiple+hand+gestures+using+lstm) | P. Grobelny et al. | Electronics | 2022 | — | LSTM gesture recognition |
-| [End-to-End Learning for SLP-Based ISAC Systems](https://scholar.google.com/scholar?q=End-to-end+learning+for+slp-based+isac+systems) | Y. Zheng et al. | IEEE WCNC | 2024 | — | Sign language prediction |
-| [Activity Recognition Based on mmWave Radar by Fusing Point Cloud and Range-Doppler](https://scholar.google.com/scholar?q=Activity+recognition+based+on+millimeter-wave+radar+by+fusing+point+cloud) | Y. Huang et al. | Signals | 2022 | — | Multi-feature fusion |
-| [RadarNet: Efficient Gesture Recognition Using a Miniature Radar Sensor](https://scholar.google.com/scholar?q=Radarnet+efficient+gesture+recognition+technique+utilizing+a+miniature+radar) | E. Hayashi et al. | — | 2021 | — | RadarNet gesture |
-| [M-Gesture: Person-Independent Real-Time In-Air Gesture Recognition](https://ieeexplore.ieee.org/document/9422421) | H. Liu et al. | IEEE IoTJ | 2021 | — | Person-independent gesture |
+| [WiFi Sensing with Channel State Information: A Survey](https://dl.acm.org/doi/10.1145/3310194) | Y. Ma, G. Zhou, S. Wang | ACM Comput. Surv. | 2019 | — | Comprehensive CSI-based WiFi sensing survey |
+| [Vision Transformers for Human Activity Recognition Using WiFi CSI](https://ieeexplore.ieee.org/document/10525496) | F. Luo et al. | IEEE IoTJ | 2024 | — | ViT-based activity recognition from WiFi CSI |
+| [WiMANS: Benchmark Dataset for WiFi-Based Multi-User Activity Sensing](https://arxiv.org/abs/2407.07447) | S. Huang et al. | ECCV | 2025 | — | Multi-user WiFi sensing benchmark |
 
 ---
 

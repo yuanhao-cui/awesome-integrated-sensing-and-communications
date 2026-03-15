@@ -1,58 +1,91 @@
 # 📋 Standardization
 
-> ISAC standardization progress: 3GPP, IEEE 802.11bf/802.15.4ab, ITU-R IMT-2030, ETSI, and industry initiatives.
+> ISAC standardization has progressed from conceptual exploration in 3GPP Release 15 to dedicated specifications in Release 19, with 32 identified use cases spanning smart transportation, industry, home, city, and drone scenarios. In parallel, IEEE 802.11bf has frozen the first Wi-Fi sensing standard (October 2024), ITU has incorporated ISAC as a key 6G scenario in IMT-2030, and ETSI has established an ISAC Industrial Specification Group with 18 additional use cases. This section reviews the multi-organization standardization landscape driving ISAC from research toward commercial deployment.
 
-## 3GPP Standardization
+## 3GPP (NR Rel-15–20)
+
+3GPP has progressively incorporated ISAC-enabling functionalities into its release-based framework. The journey spans from foundational technologies in Rel-15 to dedicated ISAC service requirements in Rel-19 (TS 22.137), with 32 identified use cases across five deployment scenarios and ISAC channel modeling studies initiated in Rel-20. ISAC air interface technologies are expected in Rel-21 as part of the 6G standardization cycle.
 
 | Standard/Document | Organization | Year | Focus |
 |-------------------|--------------|------|-------|
-| [3GPP TS 22.137: Integrated Sensing and Communication](https://scholar.google.com/scholar?q=3GPP+TS+22.137+Integrated+sensing+and+communication) | 3GPP | 2024 | ISAC service requirements |
-| [3GPP TR 22.837: Study on Integrated Sensing and Communication for NR](https://scholar.google.com/scholar?q=3GPP+TR+22.837+Study+on+integrated+sensing+and+communication) | 3GPP | 2022 | ISAC feasibility study |
-| [3GPP TR 38.801: Study on NG-RAN Overall Architecture](https://scholar.google.com/scholar?q=3GPP+TR+38.801+Study+on+NG-RAN+overall+architecture) | 3GPP | 2018 | NG-RAN architecture |
-| [3GPP TS 38.401: NG-RAN Architecture Description](https://scholar.google.com/scholar?q=3GPP+TS+38.401+NG-RAN+architecture+description) | 3GPP | 2021 | NG-RAN specification |
-| [3GPP TS 38.213: NR Sidelink Positioning Protocol (Rel-16)](https://scholar.google.com/scholar?q=3GPP+TS+38.213+NR+sidelink+positioning) | 3GPP | 2020 | Sidelink positioning |
-| [3GPP Workshop on 6G](https://scholar.google.com/scholar?q=3GPP+workshop+on+6G) | 3GPP | 2025 | 6G roadmap |
-| [Summary on ISAC Channel Modelling (R1-240xxxx)](https://scholar.google.com/scholar?q=3GPP+TSG+RAN+WG1+ISAC+channel+modelling) | 3GPP RAN WG1 | 2024 | ISAC channel models |
+| [3GPP TS 38.300: NR and NG-RAN Overall Description](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3191) | 3GPP | 2021 | Foundational NR architecture (beamforming, massive MIMO, flexible spectrum) |
+| [3GPP TS 38.104: NR Base Station Radio Transmission and Reception](https://www.3gpp.org/ftp/Specs/archive/38_series/38.104/) | 3GPP | 2023 | BS radio requirements enabling ISAC infrastructure |
+| [3GPP TR 38.855: Study on NR Positioning Support](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3501) | 3GPP | 2019 | Multi-RTT, UL-AoA, DL-AoD positioning methods for sensing |
+| [3GPP TS 22.104: Service Requirements for Cyber-Physical Control (Rel-16)](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3528) | 3GPP | 2019 | 20-30 cm positioning accuracy for factory automation |
+| [3GPP TS 38.355: NR Sidelink Positioning Protocol](https://www.3gpp.org/DynaReport/38355.htm) | 3GPP | 2020 | Sidelink positioning for V2X cooperative localization |
+| [3GPP TR 22.837: Feasibility Study on ISAC for NR](https://www.3gpp.org/ftp/Specs/html-info/22837.htm) | 3GPP | 2023 | **32 ISAC use cases** across smart transportation, industry, home, city, drones |
+| [3GPP TS 22.137: Service Requirements for ISAC](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=4198) | 3GPP SA1#103 | 2024 | Eight KPIs for wireless sensing: positioning accuracy, velocity, resolution |
+| [3GPP ISAC Channel Modelling Study Item (RAN)](https://www.3gpp.org/ftp/tsg_ran/WG1_RL1/TSGR1_116b) | 3GPP RAN#102-103 | 2024 | Unified channel models for object detection, tracking, UAV/pedestrian/vehicle |
+| [The Bridge Toward 6G: 5G-Advanced Evolution in 3GPP Release 19](https://arxiv.org/abs/2312.15174) | X. Lin | IEEE Commun. Stand. Mag. | 2025 | Rel-19 as bridge to 6G: ISAC study item, RAN intelligence, carrier-phase positioning |
+| [Architecture for Cellular Enabled Integrated Communication and Sensing Services](https://doi.org/10.23919/CC.2023.09.005) | B. Liu, Q. Zhang et al. | China Commun. | 2023 | Cellular ISAC service architecture and protocol stack design |
 
-## IEEE Standardization
+### 3GPP ISAC Use Cases (32 total from TR 22.837)
 
-| Standard | Status | Year | Focus |
-|----------|--------|------|-------|
-| [IEEE 802.11bf: Wi-Fi Sensing](https://ieeexplore.ieee.org/document/10476949) | Frozen (Oct 2024) | 2024 | Wi-Fi sensing standard |
-| [5G New Radio: Unveiling the Essentials](https://ieeexplore.ieee.org/document/8884144) | Published | 2019 | 5G NR overview |
-| [Device-Free Sensing in OFDM Cellular Network](https://ieeexplore.ieee.org/document/9775311) | Published | 2022 | Cellular sensing framework |
+The 32 use cases identified in TR 22.837 span five deployment scenarios:
+- **Smart Transportation**: Traffic monitoring, collision avoidance, road condition sensing, cooperative perception
+- **Smart Industry**: Factory automation, asset tracking, predictive maintenance, worker safety monitoring
+- **Smart Home**: Indoor positioning, gesture recognition, health monitoring, elderly fall detection
+- **Smart City**: Environmental monitoring, crowd management, infrastructure inspection, public safety
+- **Smart Drones**: UAV detection, trajectory tracking, obstacle avoidance, low-altitude airspace management
 
-## ITU-R & 6G Vision
+## IEEE (802.11bf / 802.15.4ab)
+
+IEEE has advanced ISAC standardization through Wi-Fi sensing (802.11bf) and ultra-wideband enhancements (802.15.4ab). The 802.11bf standard, frozen in October 2024, integrates sensing into the existing Wi-Fi ecosystem by leveraging preamble training fields and pilot tones for environmental inference while maintaining backward compatibility.
+
+| Standard | Organization | Year | Focus |
+|----------|--------------|------|-------|
+| [IEEE 802.11bf: Wi-Fi Sensing](https://ieeexplore.ieee.org/document/10476949) | IEEE 802.11 TGbf | 2024 | Wi-Fi-based sensing: CSI/RSSI for motion, presence, gesture detection; velocity 0.1–0.4 m/s, angular resolution 1°–8° |
+| [IEEE 802.15.4ab: Enhanced UWB](https://ieee802.org/15/pub/TG4ab.html) | IEEE 802.15 TG4ab | 2024 | UWB ranging and sensing enhancements for cm-level accuracy |
+| [Device-Free Sensing in OFDM Cellular Network](https://ieeexplore.ieee.org/document/9775311) | Q. Shi et al. | IEEE JSAC | 2022 | Foundational cellular sensing framework supporting ISAC standardization |
+
+### IEEE 802.11bf Key Milestones
+
+- **2018**: IEEE began exploring Wi-Fi sensing using CSI and RSSI for environmental detection
+- **2020**: IEEE 802.11bf Task Group established to formalize Wi-Fi sensing
+- **2022**: Draft standard defined sensing measurement reports, interference mitigation, and dynamic resource allocation
+- **2024 (Oct)**: First version frozen — backward-compatible sensing via existing Wi-Fi preamble and pilot structures
+
+## ITU (IMT-2030 / 6G Vision)
+
+ITU has formally incorporated ISAC as one of six key application scenarios in its IMT-2030 (6G Vision) framework. Spectrum allocations at WRC-19 (24–52.6 GHz mmWave) and ongoing studies on sub-THz/THz bands (100–300 GHz) provide the spectral foundation for high-resolution ISAC in 6G networks.
 
 | Document | Organization | Year | Focus |
 |----------|--------------|------|-------|
-| [IMT-2030 (6G Vision)](https://www.itu.int/en/ITU-R/study-groups/rsg5/rwp5d/Pages/default.aspx) | ITU-R | 2023 | ISAC as 6G key scenario |
-| [The Bridge Toward 6G: 5G-Advanced Evolution in 3GPP Release 19](https://scholar.google.com/scholar?q=The+bridge+toward+6G+5G-advanced+evolution+in+3GPP+release+19) | X. Lin | 2023 | 5G-A to 6G evolution |
+| [IMT-2030 Framework (6G Vision)](https://www.itu.int/en/ITU-R/study-groups/rsg5/rwp5d/Pages/default.aspx) | ITU-R WP5D | 2023 | ISAC as 6G key scenario alongside immersive通信, AI, etc. |
+| [WRC-19 Spectrum Decisions](https://www.itu.int/en/ITU-R/conferences/wrc/2019/Pages/default.aspx) | ITU | 2019 | mmWave 24–52.6 GHz allocation for 5G/6G ISAC |
+| [Sub-THz and THz Band Studies (100–300 GHz)](https://www.itu.int/en/ITU-R/study-groups/rsg5/Pages/default.aspx) | ITU-R | 2024 | High-resolution S&C spectrum for 6G ISAC |
+| [Toward Integrated Sensing and Communications for 6G: A Standardization Perspective](https://arxiv.org/abs/2308.01227) | A. Kaushik, R. Singh et al. | IEEE Commun. Stand. Mag. | 2024 | Comprehensive standardization roadmap across 3GPP, IEEE, ITU |
 
-## Industry White Papers & Reports
+## ETSI ISAC ISG (18 Use Cases)
 
-| Document | Organization | Year | Focus |
-|----------|--------------|------|-------|
-| [Exploring ISAC for Future 6G Networks](https://scholar.google.com/scholar?q=Huawei+exploring+ISAC+for+future+6G+networks) | Huawei | 2022 | Huawei ISAC vision |
-| [ISAC in 6G: Opportunities and Challenges in Smart Cities](https://scholar.google.com/scholar?q=Ericsson+ISAC+in+6G+opportunities+and+challenges) | Ericsson | 2022 | Smart city ISAC |
-| [Integrated Sensing and Communication: Towards 6G](https://scholar.google.com/scholar?q=Qualcomm+integrated+sensing+and+communication+towards+6G) | Qualcomm | 2022 | Qualcomm ISAC roadmap |
-| [5.5G Core: What's in a Number?](https://scholar.google.com/scholar?q=Huawei+5.5G+core+what's+in+a+number) | Huawei | 2023 | 5.5G evolution |
-| [ZTE's ISAC Solution for Low-Altitude Economy](https://scholar.google.com/scholar?q=ZTE+integrated+sensing+and+communication+low+altitude+economy) | ZTE | 2024 | Low-altitude ISAC |
-| [China Mobile and ZTE Complete 5G-A Synaesthesia Low-Altitude Verification](https://scholar.google.com/scholar?q=China+Mobile+ZTE+5G-A+synaesthesia+low+altitude) | China Mobile, ZTE | 2024 | 5G-A low-altitude demo |
-| [Gartner Top Strategic Technology Trends](https://www.gartner.com/en/newsroom/press-releases) | Gartner | 2024 | Tech trends including ISAC |
-
-## ETSI & Regional Initiatives
+ETSI has established an Industrial Specification Group (ISG) on ISAC that has developed 18 additional use cases beyond the 3GPP framework. The ETSI ISAC ISG focuses on use-case-specific requirements, performance metrics, and evaluation methodologies to complement 3GPP's broader NR-based approach.
 
 | Document | Organization | Year | Focus |
 |----------|--------------|------|-------|
-| [Architecture for Cellular Enabled Integrated Communication and Sensing Services](https://doi.org/10.23919/CC.2023.09.005) | B. Liu et al. | 2023 | Cellular ISAC architecture |
-| [Towards ISAC for 6G: A Standardization Perspective](https://scholar.google.com/scholar?q=Towards+integrated+sensing+and+communications+for+6G+standardization) | A. Kaushik et al. | 2023 | Standardization roadmap |
+| [ETSI ISAC ISG Use Cases](https://www.etsi.org/technologies/integrated-sensing-and-communication) | ETSI | 2024 | 18 ISAC use cases covering sensing requirements and KPIs |
+| [Architecture for Cellular Enabled ISAC Services](https://doi.org/10.23919/CC.2023.09.005) | B. Liu et al. | China Commun. | 2023 | ETSI-aligned cellular ISAC service architecture |
+| [Exploring ISAC for Future 6G Networks](https://www.huawei.com/en/news/2023/11/5-5g-whats-in-a-number) | Huawei | 2023 | Industry perspective on ISAC deployment aligned with ETSI/3GPP |
 
-## Industry Recognition
+## Low-Altitude Networks (LAWN) Standardization
 
-| Recognition | Organization | Year | Focus |
-|-------------|--------------|------|-------|
-| [Top 10 Emerging Technologies 2024](https://www.weforum.org/stories/2024/06/top-10-emerging-technologies-2024/) | World Economic Forum | 2024 | ISAC at Davos |
+The low-altitude economy has emerged as a pivotal ISAC application domain with strong policy support. In China, the Civil Aviation Administration has promoted 5G NR-based low-altitude applications, and the Ministry of Industry and Information Technology announced ISAC-enabled infrastructure for low-altitude networks. Key 3GPP Rel-18 enhancements enable drones to support beamforming, unauthorized flight detection, and multi-station cooperative sensing.
+
+| Document | Organization | Year | Focus |
+|----------|--------------|------|-------|
+| [ISAC from the Sky: UAV Trajectory Design for Joint Communication and Target Localization](https://ieeexplore.ieee.org/document/10460730) | X. Jing, F. Liu, C. Masouros, Y. Zeng | IEEE TWC | 2024 | UAV ISAC trajectory optimization with communication-sensing trade-off |
+| [Joint Maneuver and Beamforming Design for UAV-Enabled ISAC](https://ieeexplore.ieee.org/document/9626783) | Z. Lyu, G. Zhu, J. Xu | IEEE TWC | 2022 | Joint UAV trajectory and beamforming for enhanced ISAC |
+| [UAV Meets ISAC: Challenges and Future Directions](https://ieeexplore.ieee.org/document/10137555) | J. Mu, R. Zhang, Y. Cui et al. | IEEE Commun. Mag. | 2023 | Comprehensive survey on UAV-ISAC integration challenges |
+| [ZTE's ISAC Solution for Low-Altitude Economy](https://www.zte.com.cn/global/about/news/20240326e2.html) | ZTE | 2024 | 5G-A ISAC for low-altitude economy deployment |
+| [China Mobile and ZTE Complete 5G-A Synaesthesia Low-Altitude Verification](https://www.zte.com.cn/global/about/news/) | China Mobile, ZTE | 2024 | 5G-A synaesthesia field trial for drone detection |
+
+## Industry Recognition & Roadmaps
+
+| Recognition/Report | Organization | Year | Focus |
+|--------------------|--------------|------|-------|
+| [Top 10 Emerging Technologies 2024](https://www.weforum.org/stories/2024/06/top-10-emerging-technologies-2024/) | World Economic Forum | 2024 | ISAC recognized at Davos as top-10 emerging technology |
+| [5.5G Core: What's in a Number?](https://blog.huawei.com/en/post/2023/11/14/5-5g-whats-in-a-number) | Huawei | 2023 | ISAC integration in 5.5G core network with sensing data monetization |
+| [Qualcomm ISAC for 6G](https://www.qualcomm.com/news/onq/2023/03/qualcomm-6g-vision) | Qualcomm | 2023 | mmWave ISAC for autonomous vehicles and IIoT |
+| [Ericsson ISAC in 6G: Smart City Opportunities](https://www.ericsson.com/en/reports-and-papers/consumerlab/reports) | Ericsson | 2023 | ISAC for intelligent transportation and urban infrastructure |
 
 ---
 
