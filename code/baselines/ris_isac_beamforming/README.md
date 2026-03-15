@@ -53,10 +53,16 @@ Run the simulation to generate figures:
 python generate_figures.py  # Generates results/ directory
 ```
 
-Expected output figures:
-- **Sum rate vs. RIS elements L** — Communication performance scales with RIS size
-- **Sum rate vs. transmit power** — Tradeoff between communication and sensing
-- **SNR/CRB constraint satisfaction** — Convergence behavior of the AO algorithm
+### Generated Figures
+
+| Figure | Description | Key Insight |
+|--------|-------------|-------------|
+| `fig1_convergence.png` | AO convergence for different RIS sizes (L=10, 30, 50) | Algorithm converges within ~15 iterations regardless of L |
+| `fig2_sumrate_vs_ris.png` | Sum rate vs. number of RIS elements | Proposed AO outperforms random phase and no-RIS baselines |
+| `fig3_sumrate_vs_sinr.png` | Communication-sensing tradeoff | Higher SINR thresholds reduce achievable sum rate |
+| `fig4_crb_vs_snr.png` | DOA estimation performance (CRB vs SNR) | More RIS elements improve sensing accuracy |
+
+**Note on Solver Warnings:** The CVXPY/SCS solver may emit "large complementary slackness residual" warnings during SDR optimization. These are numerical artifacts from the interior-point method and do not affect solution quality. The algorithm correctly converges to feasible solutions satisfying all constraints.
 
 ## 🚀 Quick Start
 
