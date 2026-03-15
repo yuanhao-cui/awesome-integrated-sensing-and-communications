@@ -1,0 +1,37 @@
+# Default configuration for near-field beam training
+# Reference: J. Nie, Y. Cui et al., IEEE TMC, 2025
+
+# System parameters
+num_antennas: 256          # Number of transmit antennas (N_t)
+wavelength: 0.01           # Carrier wavelength (m) - 30 GHz
+antenna_spacing: 0.005     # Inter-element spacing (m) - lambda/2
+
+# Model architecture
+in_channels: 1             # Input channels (1 for complex CSI as real+imag)
+out_channels: 1            # Output channels from decoder
+init_features: 8           # Base feature maps (doubled per encoder level)
+
+# Training parameters
+batch_size: 100            # Training batch size
+num_epochs: 200            # Number of training epochs
+learning_rate: 0.001       # Initial learning rate (Adam)
+val_split: 0.1             # Validation set fraction
+
+# Learning rate scheduler (ReduceLROnPlateau)
+lr_factor: 0.2             # LR reduction factor
+lr_patience: 20            # Epochs to wait before reducing LR
+min_lr: 5.0e-5             # Minimum learning rate
+
+# Data
+data_path: "train_set/data"  # Path to .mat data directory
+num_synthetic_samples: 5000  # Number of synthetic samples if no .mat data
+
+# Evaluation
+snr_range: [-20, -15, -10, -5, 0, 5, 10, 15, 20]  # SNR values (dB) for evaluation
+
+# Checkpointing
+checkpoint_dir: "checkpoints"  # Directory for saving model checkpoints
+
+# Logging
+log_interval: 10           # Log every N epochs
+seed: 42                   # Random seed for reproducibility
