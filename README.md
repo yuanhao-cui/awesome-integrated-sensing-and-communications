@@ -328,6 +328,13 @@ Our survey organizes ISAC research along **five evolutionary axes**:
 
 > See [tools/README.md](tools/README.md) for the full list.
 
+## 🔗 Related Projects
+
+| Project | Description | Link |
+|---------|-------------|------|
+| [SDP - Sensing Data Protocol](https://github.com/yuanhao-cui/SDP-Sensing-Data-Protocol-for-Scalable-Wireless-Sensing) | Protocol-level abstraction and unified benchmark for reproducible wireless sensing | [🔗](https://github.com/yuanhao-cui/SDP-Sensing-Data-Protocol-for-Scalable-Wireless-Sensing) |
+| [Must-Reading-on-ISAC](https://github.com/yuanhao-cui/Must-Reading-on-ISAC) | Curated ISAC reading list by the same team | [🔗](https://github.com/yuanhao-cui/Must-Reading-on-ISAC) |
+
 ---
 
 ## 📊 Datasets & Benchmarks
