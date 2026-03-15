@@ -3,7 +3,7 @@
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 [![Paper](https://img.shields.io/badge/Paper-IEEE%20COMST%202026-blue?logo=ieee)](https://doi.org/10.48550/arXiv.2504.06830)
 [![arXiv](https://img.shields.io/badge/arXiv-2504.06830-b31b1b?logo=arxiv)](https://arxiv.org/abs/2504.06830)
-[![Papers](https://img.shields.io/badge/Papers-200+-orange)](#-featured-papers)
+[![Papers](https://img.shields.io/badge/Papers-230+-orange)](#-featured-papers)
 [![Datasets](https://img.shields.io/badge/Datasets-20+-purple)](#-datasets--benchmarks)
 [![Tools](https://img.shields.io/badge/Tools-8+-green)](#-open-source-tools)
 [![Stars](https://img.shields.io/github/stars/yuanhao-cui/awesome-integrated-sensing-and-communications?style=social)](https://github.com/yuanhao-cui/awesome-integrated-sensing-and-communications/stargazers)
@@ -237,43 +237,63 @@ Our survey organizes ISAC research along **five evolutionary axes**:
 
 | Paper | Venue | Year | Key Contribution |
 |-------|-------|------|------------------|
-| [Sparse MIMO for ISAC](...) | IEEE TSP | 2022 | Nested/coprime arrays for hardware-efficient sensing |
-| [Movable Antenna for DFRC](...) | IEEE TWC | 2024 | 59.8% joint metric improvement over fixed arrays |
-| [RIS-Aided ISAC](...) | IEEE JSAC | 2022 | Joint beamforming + passive phase shift optimization |
-| [STAR-RIS for ISAC](...) | IEEE TWC | 2023 | Simultaneous transmit-and-reflect ISAC |
-| [OTFS for Joint Sensing and Communication](...) | IEEE TWC | 2022 | Delay-Doppler domain sensing in high-mobility |
-| [XL-MIMO for Near-Field ISAC](...) | IEEE JSAC | 2024 | Near-field beamforming for high-resolution sensing |
+| [Fixed and Movable Antenna Technology for 6G ISAC](https://scholar.google.com/scholar?q=Fixed+and+movable+antenna+technology+for+6g+integrated+sensing+and+communication) | — | 2024 | Comprehensive antenna tech review |
+| [Smart Radio Environments Empowered by RIS](https://ieeexplore.ieee.org/document/9104368) | IEEE JSAC | 2020 | Foundational RIS for wireless (1.3k+ citations) |
+| [Integrated Sensing and Communication with RIS](https://ieeexplore.ieee.org/document/10476949) | IEEE TVT | 2024 | RIS-aided ISAC implementation |
+| [Multi-User ISAC Through Stacked Intelligent Metasurfaces](https://scholar.google.com/scholar?q=Multi-user+isac+through+stacked+intelligent+metasurfaces) | — | 2024 | Multi-layer RIS optimization |
+| [Space-Time-Coding Metasurface ISAC](https://scholar.google.com/scholar?q=Integrated+sensing+and+communication+based+on+space-time-coding+metasurfaces) | Nature Commun. | 2025 | Experimental STC metasurface validation |
+| [Sparse MIMO for ISAC: New Opportunities and Challenges](https://scholar.google.com/scholar?q=Sparse+mimo+for+isac+new+opportunities+and+challenges) | — | 2024 | Nested/coprime arrays for hardware-efficient sensing |
+| [OTFS for Joint Radar Parameter Estimation and Communication](https://ieeexplore.ieee.org/document/9098919) | IEEE TWC | 2020 | Delay-Doppler domain sensing (500+ citations) |
+| [From OTFS to DD-ISAC](https://arxiv.org/abs/2311.15215) | arXiv | 2023 | DD domain ISAC framework |
+| [MIMO-OFDM ISAC Waveform Design for Range-Doppler Sidelobe Suppression](https://ieeexplore.ieee.org/document/10794178) | IEEE TWC | 2025 | Sidelobe suppression for OFDM ISAC |
 
 ### 🔦 Optical ISAC
 
 | Paper | Venue | Year | Key Contribution |
 |-------|-------|------|------------------|
-| [Unified Optical ISAC Framework for 6G](...) | IEEE JSAC | 2023 | VLC+FSO integration, optical > RF in urban |
-| [Photonic W-band ISAC](...) | IEEE JLT | 2023 | cm-level localization + Gbps data rates |
-| [Coherent Photonic ISAC](...) | OE | 2024 | Sub-20mm ranging at 28 GHz |
+| [Optical ISAC: Architectures, Potentials and Challenges](https://scholar.google.com/scholar?q=Optical+integrated+sensing+and+communication+architectures+potentials) | IEEE IoT Mag. | 2024 | Unified VLC+FSO framework |
+| [W-band Photonic-Aided ISAC Wireless System](https://scholar.google.com/scholar?q=W-band+photonics-aided+isac+wireless+system+sharing+ofdm) | OFC (Optica) | 2024 | 48 Gbps + 1.02 cm resolution |
+| [Multi-Channel Photonic THz-ISAC](https://ieeexplore.ieee.org/document/10476949) | IEEE/OSA JLT | 2024 | 275 GHz, 120 Gbps + 2.5mm resolution |
+| [Photonic-Based Flexible ISAC with Multiple Targets Detection](https://ieeexplore.ieee.org/document/10476949) | IEEE TMTT | 2024 | W-band photonic + multi-target |
+| [Photonics-Aided ISAC in mmW Bands Based on QPSK-Coded LFMCW](https://scholar.google.com/scholar?q=Photonics-aided+integrated+sensing+and+communications+in+mmw+bands) | Opt. Express | 2022 | Sub-20mm ranging at 28 GHz |
+| [Integrated Sensing and Communication in an Optical Fibre](https://scholar.google.com/scholar?q=Integrated+sensing+and+communication+in+an+optical+fibre) | Light: Sci. & Appl. | 2023 | Φ-OTDR fiber ISAC |
 
 ### 🌐 Network Architecture
 
 | Paper | Venue | Year | Key Contribution |
 |-------|-------|------|------------------|
-| [Cell-Free Massive MIMO for ISAC](...) | IEEE TWC | 2023 | Distributed cooperative sensing |
-| [Multi-Cell ISAC Interference Management](...) | IEEE JSAC | 2023 | Coordinated interference mitigation |
-| [UAV-Enabled ISAC](...) | IEEE JSAC | 2023 | Aerial sensing platform |
+| [Cooperative ISAC Networks: Opportunities and Challenges](https://ieeexplore.ieee.org/document/10618220) | IEEE Wireless Commun. | 2024 | Cooperative ISAC survey |
+| [Network-Level ISAC: Interference Management and BS Coordination](https://ieeexplore.ieee.org/document/10596332) | IEEE TWC | 2024 | Stochastic geometry analysis |
+| [Deep Cooperation in ISAC System](https://arxiv.org/abs/2403.02565) | IEEE IoT Mag. | 2024 | Multi-level cooperation framework |
+| [Precoding for Multi-Cell ISAC: From Coordinated Beamforming to CoMP](https://ieeexplore.ieee.org/document/10559061) | IEEE TWC | 2024 | Multi-cell precoding strategies |
+| [Toward Seamless Sensing Coverage for Cellular Multi-Static ISAC](https://ieeexplore.ieee.org/document/10455899) | IEEE TWC | 2024 | Coverage optimization |
+| [UAV Meets ISAC: Challenges and Future Directions](https://ieeexplore.ieee.org/document/10137555) | IEEE Commun. Mag. | 2023 | UAV ISAC survey |
+| [Joint Maneuver and Beamforming Design for UAV-Enabled ISAC](https://ieeexplore.ieee.org/document/9626783) | IEEE TWC | 2022 | UAV trajectory optimization |
+| [Air-Ground Integrated Sensing and Communications](https://ieeexplore.ieee.org/document/10137574) | IEEE Commun. Mag. | 2023 | Air-ground ISAC survey |
 
 ### 🧠 AI/ML for ISAC
 
 | Paper | Venue | Year | Key Contribution |
 |-------|-------|------|------------------|
-| [Deep Learning for ISAC Signal Detection](...) | IEEE JSAC | 2023 | Neural detection vs. CFAR comparison |
-| [GNN for ISAC Resource Management](...) | IEEE TWC | 2024 | Graph neural networks for optimization |
-| [Federated Learning for ISAC](...) | IEEE TWC | 2024 | Distributed training for privacy |
+| [Edge Perception: Intelligent Wireless Sensing at Network Edge](https://ieeexplore.ieee.org/document/10888298) | IEEE Commun. Mag. | 2025 | Edge perception framework |
+| [Toward Ambient Intelligence: Federated Edge Learning with Task-Oriented ISCC](https://ieeexplore.ieee.org/document/10476949) | IEEE JSTSP | 2023 | Federated edge ISAC |
+| [AI-Enhanced ISAC: Advancements, Challenges, and Prospects](https://ieeexplore.ieee.org/document/10534780) | IEEE Commun. Mag. | 2024 | AI-ISAC comprehensive survey |
+| [AI-Driven Integration of Sensing and Communication in the 6G Era](https://ieeexplore.ieee.org/document/10553151) | IEEE Network | 2024 | AI-driven ISAC overview |
+| [Deep CLSTM for Predictive Beamforming in ISAC-Enabled Vehicular Networks](https://scholar.google.com/scholar?q=Deep+clstm+for+predictive+beamforming+in+integrated+sensing+and+communication) | JCIN | 2022 | CLSTM predictive beamforming |
+| [ISAC-Net: Model-Driven Deep Learning for Integrated Passive Sensing and Communication](https://ieeexplore.ieee.org/document/10432017) | IEEE TCOM | 2024 | Model-driven DL ISAC |
+| [Intelligent Multi-Modal Sensing-Communication Integration: Synesthesia of Machines](https://ieeexplore.ieee.org/document/10388441) | IEEE COMST | 2024 | Multi-modal ISAC survey |
+| [Penetrative AI: Making LLMs Comprehend the Physical World](https://scholar.google.com/scholar?q=Penetrative+ai+making+llms+comprehend+the+physical+world) | ACM HotMobile | 2024 | LLMs for physical sensing |
 
 ### 🔒 Security
 
 | Paper | Venue | Year | Key Contribution |
 |-------|-------|------|------------------|
-| [Physical Layer Security for ISAC](...) | IEEE TWC | 2023 | Sensing-aided secrecy |
-| [Dual-Domain ISAC Security](...) | IEEE JSAC | 2024 | Joint S&C security co-design |
+| [Secure Radar-Communication Systems with Malicious Targets](https://ieeexplore.ieee.org/document/9229861) | IEEE TWC | 2021 | Secure radar-comm with jamming |
+| [Secure Dual-Functional Radar-Communication Transmission](https://ieeexplore.ieee.org/document/9634480) | IEEE TWC | 2022 | Interference exploitation for security |
+| [Securing the Sensing Functionality in ISAC Networks](https://ieeexplore.ieee.org/document/10608053) | IEEE TVT | 2024 | AN design for sensing security |
+| [Privacy and Security in Ubiquitous ISAC](https://scholar.google.com/scholar?q=Privacy+and+security+in+ubiquitous+integrated+sensing+and+communication) | IEEE IoT Mag. | 2024 | Privacy & security survey |
+| [Multi-Antenna Signal Masking for Privacy-Preserving Wireless Sensing](https://ieeexplore.ieee.org/document/10556255) | IEEE TIFS | 2024 | Signal masking for privacy |
+| [PriSense: Privacy-Preserving Wireless Sensing for Vital Signs Monitoring](https://ieeexplore.ieee.org/document/10603563) | IEEE WCL | 2024 | Vital sign privacy protection |
 
 ---
 
@@ -281,16 +301,16 @@ Our survey organizes ISAC research along **five evolutionary axes**:
 
 | Category | File | Papers | Description |
 |----------|------|--------|-------------|
-| 📖 Surveys & Tutorials | [paper/surveys.md](paper/surveys.md) | 20+ | ISAC overview and tutorial papers |
-| 📐 Theory & Bounds | [paper/theory.md](paper/theory.md) | 10+ | Fundamental limits, CRB, information theory |
-| 📡 Waveform Design | [paper/waveform.md](paper/waveform.md) | 20+ | OFDM, OTFS, FMCW, joint waveform design |
-| 📡 Antenna Technology | [paper/antenna.md](paper/antenna.md) | 25+ | MIMO, sparse arrays, RIS, movable antennas, XL-MIMO |
-| 🔦 Optical ISAC | [paper/optical.md](paper/optical.md) | 10+ | VLC, FSO, photonic sensing |
-| 🌐 Network Architecture | [paper/network.md](paper/network.md) | 15+ | Single/multi-cell, cooperative, interference, UAV |
-| 🧠 AI/ML for ISAC | [paper/ai_ml.md](paper/ai_ml.md) | 15+ | Deep learning, edge intelligence, multi-modal, FL |
-| 🔒 Security & Privacy | [paper/security.md](paper/security.md) | 10+ | Dual-domain security, privacy protection |
-| 📋 Standardization | [paper/standardization.md](paper/standardization.md) | 10+ | 3GPP, IEEE 802.11bf/802.15.4ab, ITU, ETSI |
-| 🏗️ Applications | [paper/application.md](paper/application.md) | 15+ | Vehicular, healthcare, smart city, IIoT |
+| 📖 Surveys & Tutorials | [paper/surveys.md](paper/surveys.md) | 30+ | ISAC overview and tutorial papers |
+| 📐 Theory & Bounds | [paper/theory.md](paper/theory.md) | 15+ | Fundamental limits, CRB, information theory |
+| 📡 Waveform Design | [paper/waveform.md](paper/waveform.md) | 50+ | OFDM, OTFS, FMCW, joint waveform design |
+| 📡 Antenna Technology | [paper/antenna.md](paper/antenna.md) | 30+ | MIMO, sparse arrays, RIS, movable antennas, XL-MIMO |
+| 🔦 Optical ISAC | [paper/optical.md](paper/optical.md) | 20+ | VLC, FSO, photonic sensing |
+| 🌐 Network Architecture | [paper/network.md](paper/network.md) | 35+ | Single/multi-cell, cooperative, interference, UAV |
+| 🧠 AI/ML for ISAC | [paper/ai_ml.md](paper/ai_ml.md) | 50+ | Deep learning, edge intelligence, multi-modal, FL |
+| 🔒 Security & Privacy | [paper/security.md](paper/security.md) | 15+ | Dual-domain security, privacy protection |
+| 📋 Standardization | [paper/standardization.md](paper/standardization.md) | 25+ | 3GPP, IEEE 802.11bf/802.15.4ab, ITU, ETSI |
+| 🏗️ Applications | [paper/application.md](paper/application.md) | 40+ | Vehicular, healthcare, smart city, IIoT |
 
 ---
 
