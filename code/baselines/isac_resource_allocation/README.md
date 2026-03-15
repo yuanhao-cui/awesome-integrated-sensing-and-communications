@@ -33,13 +33,13 @@ The optimization is solved via **Alternating Optimization (AO)**: bandwidth is i
 
 The fundamental tradeoff: as the communication rate threshold Γ_c increases, fewer resources remain for sensing, degrading detection and localization performance.
 
-![Detection & Localization](results/p0d_detection_localization.png)
+![Detection & Localization](results/p0d_sensing_rate_tradeoff.png)
 
 ### Power & Bandwidth Allocation Breakdown
 
 How total resources split across 3 sensing targets, 3 communication users, and 1 ISAC joint user:
 
-![Resource Allocation](results/p0d_resource_allocation.png)
+![Resource Allocation](results/p0d_allocation_heatmap.png)
 
 ### Tracking PCRB Convergence
 
@@ -189,8 +189,8 @@ isac_resource_allocation/
 │   ├── reproduce_fig12.py     # PCRB over time
 │   └── demo.ipynb             # Interactive demo notebook
 ├── results/
-│   ├── p0d_detection_localization.png
-│   ├── p0d_resource_allocation.png
+│   ├── p0d_sensing_rate_tradeoff.png
+│   ├── p0d_allocation_heatmap.png
 │   └── p0d_tracking_pcrb.png
 ├── generate_figures.py        # Generate all result figures
 ├── requirements.txt           # Python dependencies
