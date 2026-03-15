@@ -153,7 +153,6 @@ subject to $\operatorname{tr}\{\mathbf{R}_X\} = P_T \cdot M$ and $\mathbf{R}_X \
 isac_capacity_distortion/
 ├── README.md                   # This file
 ├── requirements.txt            # numpy, scipy, cvxpy, matplotlib
-├── generate_figures.py         # Root-level quick figure generator
 │
 ├── src/                        # Core library
 │   ├── __init__.py             # Package exports
