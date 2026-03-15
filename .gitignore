@@ -30,7 +30,6 @@ htmlcov/
 coverage.xml
 
 # Results (generated)
-code/baselines/*/results/*.png
 code/baselines/*/results/*.pdf
 code/baselines/*/results/*.csv
 !code/baselines/*/results/.gitkeep
