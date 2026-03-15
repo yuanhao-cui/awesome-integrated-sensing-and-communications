@@ -37,7 +37,7 @@ Photonic sensing technologies—including LiDAR, vibrating fiber sensing, and ph
 |----------|----------|----------|----------|----------|----------|
 | [W-Band Photonic-Aided mm-Wave ISAC System Enabled by Shared OFDM Signal](https://opg.optica.org/ol/fulltext.cfm?uri=ol-49-18-5280) | H. Yan et al. | Opt. Lett. | 2024 | — | 47.54 Gbps photonic ISAC with two-stage carrier frequency recovery |
 | [Photonics-Aided Integrated Sensing and Communications in mmW Bands Based on DC-Offset QPSK-Encoded LFMCW](https://opg.optica.org/oe/fulltext.cfm?uri=oe-30-24-43088) | M. Lei et al. | Opt. Express | 2022 | — | Sub-20mm ranging at 28 GHz with coherent photonic ISAC |
-| [Integrated Sensing and Communication in an Optical Fibre](https://www.nature.com/articles/s41377-023-01072-8) | H. He et al. | Light: Sci. & Appl. | 2023 | — | Φ-OTDR fiber ISAC for structural monitoring and data transmission |
+| [Integrated Sensing and Communication in an Optical Fibre](https://www.nature.com/articles/s41377-022-01067-1) | H. He et al. | Light: Sci. & Appl. | 2023 | — | Φ-OTDR fiber ISAC for structural monitoring and data transmission |
 | [Demonstration of Photonics-Based Flexible Integration of Sensing and Communication with Adaptive Waveforms for W-Band](https://opg.optica.org/oe/fulltext.cfm?uri=oe-30-22-40936) | B. Dong et al. | Opt. Express | 2022 | — | Adaptive W-band waveforms for flexible ISAC |
 
 ## RF-Optical Hybrid Architectures

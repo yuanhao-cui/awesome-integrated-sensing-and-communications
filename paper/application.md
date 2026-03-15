@@ -24,7 +24,7 @@ In smart cities, ISAC transforms cellular base stations and Wi-Fi access points 
 | [Sensing as a Service in 6G Perceptive Mobile Networks: Architecture, Advances, and the Road Ahead](https://arxiv.org/abs/2308.08185) | F. Dong, F. Liu, S. Lu et al. | IEEE Network | 2024 | — | SaaS architecture enabling third-party sensing services on 6G infrastructure |
 | [Seventy Years of Radar and Communications: The Road from Separation to Integration](https://arxiv.org/abs/2210.00446) | F. Liu, L. Zheng, **Y. Cui**, C. Masouros et al. | IEEE SPM | 2023 | — | Historical perspective on ISAC evolution with smart city deployment analysis |
 | [Enabling Joint Communication and Radar Sensing in Mobile Networks — A Survey](https://ieeexplore.ieee.org/document/9654017) | J. A. Zhang, M. L. Rahman et al. | IEEE Commun. Surveys Tuts. | 2022 | — | Perceptive mobile networks for urban infrastructure sensing |
-| [Channel Modeling for NLOS Visible Light Networks with ISAC](https://ieeexplore.ieee.org/document/10542179) | P. Zhang et al. | Opt. Lett. | 2024 | — | Urban VLC-based ISAC for NLOS environmental monitoring |
+| [Channel Modeling for NLOS Visible Light Networks with ISAC](https://opg.optica.org/ol/fulltext.cfm?uri=ol-49-11-2861) | P. Zhang et al. | Opt. Lett. | 2024 | — | Urban VLC-based ISAC for NLOS environmental monitoring |
 
 ## Healthcare & Elderly Care
 
@@ -35,7 +35,7 @@ ISAC enables non-intrusive health monitoring by leveraging wireless signals to d
 | [HeartPrint: Exploring a Heartbeat-Based Multiuser Authentication with Single mmWave Radar](https://ieeexplore.ieee.org/document/9607398) | Y. Wang, T. Gu, T. H. Luan et al. | IEEE IoTJ | 2022 | — | Heartbeat biometric authentication via single mmWave radar |
 | [PriSense: Privacy-Preserving Wireless Sensing for Vital Signs Monitoring](https://ieeexplore.ieee.org/document/10603563) | Y. Wang, L. Sun, Q. Du, M. Elkashlan | IEEE WCL | 2024 | — | Pilot-shielding for privacy-preserving vital sign monitoring |
 | [mmWave Radar-Based Human Activity Recognition](https://ieeexplore.ieee.org/document/9401938) | X. Li et al. | IEEE TGRS | 2021 | — | Radar-based activity classification for healthcare monitoring |
-| [M-Gesture: Person-Independent Real-Time In-Air Gesture Recognition](https://ieeexplore.ieee.org/document/9422421) | H. Liu et al. | IEEE IoTJ | 2021 | — | Contactless gesture recognition for healthcare interfaces |
+| [M-Gesture: Person-Independent Real-Time In-Air Gesture Recognition](https://ieeexplore.ieee.org/document/9490685/) | H. Liu et al. | IEEE IoTJ | 2021 | — | Contactless gesture recognition for healthcare interfaces |
 | [On the Physical Layer of Digital Twin: An ISAC Perspective](https://ieeexplore.ieee.org/document/10253808) | Y. Cui, W. Yuan et al. | IEEE JSAC | 2023 | — | ISAC-DT for real-time patient monitoring digital twins |
 
 ## Industrial IoT (IIoT)

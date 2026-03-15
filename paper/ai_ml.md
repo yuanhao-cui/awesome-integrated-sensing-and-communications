@@ -17,7 +17,7 @@ Edge perception integrates wireless sensing, communication, computation, and AI 
 | [Edge Perception: Intelligent Wireless Sensing at Network Edge](https://arxiv.org/abs/2410.21017) | **Y. Cui** et al. | IEEE Commun. Mag. | 2025 | — | Edge perception framework integrating sensing, computing, and communication |
 |----------|----------|----------|----------|----------|----------|
 | [Edge AI: On-Demand Accelerating Deep Neural Network Inference via Edge Computing](https://ieeexplore.ieee.org/document/8917383) | E. Li et al. | IEEE Trans. Wireless Commun. | 2020 | — | Edge AI fundamentals for DNN inference acceleration |
-| [Edge Intelligence for Autonomous Driving in 6G Wireless System](https://ieeexplore.ieee.org/document/9422421) | B. Yang et al. | IEEE Wireless Commun. | 2021 | — | Edge AI design for autonomous driving applications |
+| [Edge Intelligence for Autonomous Driving in 6G Wireless System](https://ieeexplore.ieee.org/document/9430907/) | B. Yang et al. | IEEE Wireless Commun. | 2021 | — | Edge AI design for autonomous driving applications |
 | [AI-in-the-Loop Sensing and Communication Joint Design for Edge Intelligence](https://arxiv.org/abs/2502.10203) | Z. Cai et al. | arXiv | 2025 | — | Closed-loop AI-in-the-loop control reducing sensing cost by 52% |
 | [Energy-Efficient and Intelligent ISAC in V2X Networks with Spiking Neural Networks-Driven DRL](https://arxiv.org/abs/2501.01038) | C. Shang et al. | arXiv | 2025 | — | SNN-DRL for energy-efficient V2X ISAC |
 
@@ -61,7 +61,7 @@ High-quality, multi-modal sensing datasets are critical for training and evaluat
 | [WIMANS: A Benchmark Dataset for Wi-Fi-Based Multi-User Activity Sensing](https://link.springer.com/chapter/10.1007/978-3-031-72664-4_5) | S. Huang et al. | ECCV | 2025 | — | Multi-user CSI dataset with 9.4 hours of dual-band data |
 | [IMgFI: A High Accuracy and Lightweight HAR Framework Using CSI Image](https://ieeexplore.ieee.org/document/10273603) | C. Zhang et al. | IEEE Sensors J. | 2023 | — | CSI-to-image HAR dataset with lightweight DL framework |
 | [EyeFi: Fast Human Identification Through Vision and Wi-Fi-Based Trajectory Matching](https://ieeexplore.ieee.org/document/9114824) | S. Fang et al. | IEEE DCOSS | 2020 | — | Vision + Wi-Fi CSI fusion dataset for human identification |
-| [OPERAnet: A Multimodal Activity Recognition Dataset from RF and Vision Sensors](https://www.nature.com/articles/s41597-022-01765-4) | M. J. Bocus et al. | Scientific Data | 2022 | — | 8-hour multi-modal HAR dataset with high-resolution labels |
+| [OPERAnet: A Multimodal Activity Recognition Dataset from RF and Vision Sensors](https://www.nature.com/articles/s41597-022-01573-2) | M. J. Bocus et al. | Scientific Data | 2022 | — | 8-hour multi-modal HAR dataset with high-resolution labels |
 
 ## Foundation Models & LLMs for ISAC
 

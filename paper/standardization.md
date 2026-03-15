@@ -17,7 +17,7 @@
 | [3GPP TS 22.137: Service Requirements for ISAC](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=4198) | 3GPP SA1#103 | 2024 | Eight KPIs for wireless sensing: positioning accuracy, velocity, resolution |
 | [3GPP ISAC Channel Modelling Study Item (RAN)](https://www.3gpp.org/ftp/tsg_ran/WG1_RL1/TSGR1_116b) | 3GPP RAN#102-103 | 2024 | Unified channel models for object detection, tracking, UAV/pedestrian/vehicle |
 | [The Bridge Toward 6G: 5G-Advanced Evolution in 3GPP Release 19](https://arxiv.org/abs/2312.15174) | X. Lin | IEEE Commun. Stand. Mag. | 2025 | Rel-19 as bridge to 6G: ISAC study item, RAN intelligence, carrier-phase positioning |
-| [Architecture for Cellular Enabled Integrated Communication and Sensing Services](https://doi.org/10.23919/CC.2023.09.005) | B. Liu, Q. Zhang et al. | China Commun. | 2023 | Cellular ISAC service architecture and protocol stack design |
+| [Architecture for Cellular Enabled Integrated Communication and Sensing Services](https://ieeexplore.ieee.org/document/10251772/) | B. Liu, Q. Zhang et al. | China Commun. | 2023 | Cellular ISAC service architecture and protocol stack design |
 
 ### 3GPP ISAC Use Cases (32 total from TR 22.837)
 
@@ -62,9 +62,9 @@ ETSI has established an Industrial Specification Group (ISG) on ISAC that has de
 
 | Document | Organization | Year | Focus |
 |----------|--------------|------|-------|
-| [ETSI ISAC ISG Use Cases](https://www.etsi.org/technologies/integrated-sensing-and-communication) | ETSI | 2024 | 18 ISAC use cases covering sensing requirements and KPIs |
-| [Architecture for Cellular Enabled ISAC Services](https://doi.org/10.23919/CC.2023.09.005) | B. Liu et al. | China Commun. | 2023 | ETSI-aligned cellular ISAC service architecture |
-| [Exploring ISAC for Future 6G Networks](https://www.huawei.com/en/news/2023/11/5-5g-whats-in-a-number) | Huawei | 2023 | Industry perspective on ISAC deployment aligned with ETSI/3GPP |
+| [ETSI ISAC ISG Use Cases](https://www.etsi.org/committee/2295-isac) | ETSI | 2024 | 18 ISAC use cases covering sensing requirements and KPIs |
+| [Architecture for Cellular Enabled ISAC Services](https://ieeexplore.ieee.org/document/10251772/) | B. Liu et al. | China Commun. | 2023 | ETSI-aligned cellular ISAC service architecture |
+| [Exploring ISAC for Future 6G Networks](https://blog.huawei.com/en/post/2023/11/14/5-5g-whats-in-a-number) | Huawei | 2023 | Industry perspective on ISAC deployment aligned with ETSI/3GPP |
 
 ## Low-Altitude Networks (LAWN) Standardization
 
@@ -82,10 +82,10 @@ The low-altitude economy has emerged as a pivotal ISAC application domain with s
 
 | Recognition/Report | Organization | Year | Focus |
 |--------------------|--------------|------|-------|
-| [Top 10 Emerging Technologies 2024](https://www.weforum.org/stories/2024/06/top-10-emerging-technologies-2024/) | World Economic Forum | 2024 | ISAC recognized at Davos as top-10 emerging technology |
+| [Top 10 Emerging Technologies 2024](https://www.weforum.org/podcasts/radio-davos/episodes/top-10-emerging-technologies-2024/) | World Economic Forum | 2024 | ISAC recognized at Davos as top-10 emerging technology |
 | [5.5G Core: What's in a Number?](https://blog.huawei.com/en/post/2023/11/14/5-5g-whats-in-a-number) | Huawei | 2023 | ISAC integration in 5.5G core network with sensing data monetization |
-| [Qualcomm ISAC for 6G](https://www.qualcomm.com/news/onq/2023/03/qualcomm-6g-vision) | Qualcomm | 2023 | mmWave ISAC for autonomous vehicles and IIoT |
-| [Ericsson ISAC in 6G: Smart City Opportunities](https://www.ericsson.com/en/reports-and-papers/consumerlab/reports) | Ericsson | 2023 | ISAC for intelligent transportation and urban infrastructure |
+| [Qualcomm ISAC for 6G](https://www.qualcomm.com/research/6g/isac) | Qualcomm | 2023 | mmWave ISAC for autonomous vehicles and IIoT |
+| [Ericsson ISAC in 6G: Smart City Opportunities](https://www.ericsson.com/en/blog/2024/6/integrated-sensing-and-communication) | Ericsson | 2023 | ISAC for intelligent transportation and urban infrastructure |
 
 ---
 

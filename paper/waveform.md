@@ -48,8 +48,8 @@ OFDM is the most extensively studied waveform for ISAC due to its prevalence in 
 
 | Paper | Authors | Venue | Year | Code | Focus |
 |-------|---------|-------|------|------|-------|
-| [Code-Division OFDM JRC System for 6G Machine-Type Communication](https://ieeexplore.ieee.org/document/9439997) | X. Chen et al. | IEEE IoTJ | 2021 | — | Proposes CD-OFDM for joint radar-communication in 6G machine-type communication with 30.1 dB gain in low SINR regime. |
-| [Bandwidth Efficient Dual-Function Radar Communication Based on MIMO Radar Using OFDM](https://ieeexplore.ieee.org/document/9957609) | Z. Xu, A. Petropulu | IEEE TSP | 2023 | — | Designs bandwidth-efficient MIMO OFDM radar-communication system with optimized subcarrier utilization. |
+| [Code-Division OFDM JRC System for 6G Machine-Type Communication](https://ieeexplore.ieee.org/document/9359665/) | X. Chen et al. | IEEE IoTJ | 2021 | — | Proposes CD-OFDM for joint radar-communication in 6G machine-type communication with 30.1 dB gain in low SINR regime. |
+| [Bandwidth Efficient Dual-Function Radar Communication Based on MIMO Radar Using OFDM](https://ieeexplore.ieee.org/document/10036975/) | Z. Xu, A. Petropulu | IEEE TSP | 2023 | — | Designs bandwidth-efficient MIMO OFDM radar-communication system with optimized subcarrier utilization. |
 | [MIMO OFDM Dual-Function Radar-Communication Under Error Rate and Beampattern Constraints](https://ieeexplore.ieee.org/document/9786329) | J. Johnston et al. | IEEE JSAC | 2022 | — | Addresses MIMO OFDM DFRC under error rate and beampattern constraints for practical deployment. |
 | [Hybrid Beamforming for OFDM Dual-Function Radar-Communication System](https://ieeexplore.ieee.org/document/9503844) | Z. Cheng et al. | IEEE JSTSP | 2021 | — | Proposes hybrid analog-digital beamforming for OFDM-based DFRC systems. |
 | [Joint Communication and Sensing System Performance Evaluation and Testbed](https://ieeexplore.ieee.org/document/10618220) | Q. Zhang et al. | IEEE Network | 2024 | — | Presents an OFDM ISAC system testbed with performance evaluation in practical scenarios. |
@@ -90,7 +90,7 @@ Unified waveform design aims to create single waveforms that simultaneously serv
 |-------|---------|-------|------|------|-------|
 | [Joint Radar-Communications with Cyclic Prefixed Single Carrier Waveforms](https://ieeexplore.ieee.org/document/8970697) | Y. Zeng et al. | IEEE TVT | 2020 | — | Proposes CP-SC waveforms for joint radar-communications with low PAPR and efficient equalization. |
 | [Multi-Metric Waveform Optimization for MISO JRC](https://ieeexplore.ieee.org/document/9657750) | Z. Ni et al. | IEEE TCOM | 2022 | — | Optimizes MISO joint radar-communication waveforms across multiple performance metrics simultaneously. |
-| [Complementary Coded Scrambling RadCom System](https://ieeexplore.ieee.org/document/10336885) | X. Liu et al. | IEEE TVT | 2024 | — | Proposes complementary coded scrambling for radar-communication systems with improved interference resilience. |
+| [Complementary Coded Scrambling RadCom System](https://ieeexplore.ieee.org/document/10202575/) | X. Liu et al. | IEEE TVT | 2024 | — | Proposes complementary coded scrambling for radar-communication systems with improved interference resilience. |
 | [Transmit Waveform Design for DFRC via Hybrid Linear-Nonlinear Precoding](https://ieeexplore.ieee.org/document/10122677) | C. Wen et al. | IEEE TSP | 2023 | — | Designs DFRC waveforms using hybrid linear-nonlinear precoding for enhanced flexibility. |
 | [Joint Receiver Design for ISAC](https://ieeexplore.ieee.org/document/10152830) | Y. Dong et al. | IEEE Commun. Lett. | 2023 | — | Proposes joint receiver design for ISAC systems, enabling simultaneous sensing and communication decoding. |
 | [Unimodular Waveform Design for Integrated Radar Communication and Jamming](https://scholar.google.com/scholar?q=Unimodular+waveform+design+for+integrated+radar+communication+and+jamming) | C. Huang et al. | Digital Signal Process. | 2023 | — | Designs unimodular waveforms for triple-function radar, communication, and jamming integration. |
@@ -106,7 +106,7 @@ Index modulation embeds information in the activation patterns of subcarriers, a
 | [MajorCom: A Dual-Function Radar Communication System Using Index Modulation](https://ieeexplore.ieee.org/document/9089385) | T. Huang et al. | IEEE TSP | 2020 | — | Proposes MajorCom system embedding communication via index modulation in radar waveforms. |
 | [Hybrid Index Modulation for Dual-Functional Radar Communications](https://ieeexplore.ieee.org/document/9910576) | J. Xu et al. | IEEE TVT | 2023 | — | Develops hybrid index modulation scheme combining multiple IM dimensions for enhanced data rates. |
 | [Spatial Modulation for Joint Radar-Communications: Design, Analysis, and Hardware Prototype](https://ieeexplore.ieee.org/document/9329065) | D. Ma et al. | IEEE TVT | 2021 | — | Implements spatial modulation for JRC with hardware prototype validation, demonstrating practical feasibility. |
-| [Code-Division CD-OFDM with Successive Interference Cancellation](https://ieeexplore.ieee.org/document/9439997) | X. Chen et al. | IEEE IoTJ | 2021 | — | Proposes CD-OFDM with SIC for JRC, achieving 30.1 dB gain in low SINR with comparable sensing accuracy. |
+| [Code-Division CD-OFDM with Successive Interference Cancellation](https://ieeexplore.ieee.org/document/9359665/) | X. Chen et al. | IEEE IoTJ | 2021 | — | Proposes CD-OFDM with SIC for JRC, achieving 30.1 dB gain in low SINR with comparable sensing accuracy. |
 
 ## Sensing-Communication Receiver & Processing
 

@@ -12,7 +12,7 @@ Single-cell ISAC systems allocate resources for sensing and communication within
 | [Time-Division ISAC Enabled Connected Automated Vehicles Cooperation](https://ieeexplore.ieee.org/document/9786023) | Q. Zhang et al. | IEEE JSAC | 2022 | — | TD-ISAC algorithm for cooperative vehicles |
 | [A Dual Function Compromise for Uplink ISAC: Joint Spectrum and Power Management](https://ieeexplore.ieee.org/document/10433808) | Y. Li, Z. Wei, **Y. Cui** et al. | IEEE WCNC | 2024 | — | Joint subcarrier and power allocation for uplink ISAC |
 | [Power Minimization Strategy Based Subcarrier Allocation for ISAC](https://ieeexplore.ieee.org/document/10119223) | J. Zhu, **Y. Cui**, J. Mu et al. | IEEE WCNC | 2023 | — | Power-efficient frequency-division ISAC |
-| [An Integrated Sensing and Communications Waveform Design: Experimental Proof of Concept](https://ieeexplore.ieee.org/document/9958765) | T. Xu et al. | IEEE OJCOMS | 2022 | — | Real-time PoC validation of ISAC waveform tradeoffs |
+| [An Integrated Sensing and Communications Waveform Design: Experimental Proof of Concept](https://ieeexplore.ieee.org/document/9903001/) | T. Xu et al. | IEEE OJCOMS | 2022 | — | Real-time PoC validation of ISAC waveform tradeoffs |
 | [Mutual Information-Based Integrated Sensing and Communications: A WMMSE Framework](https://ieeexplore.ieee.org/document/10648701) | Y. Peng et al. | IEEE Wireless Commun. Lett. | 2024 | — | WMMSE optimization for MI-based ISAC |
 
 ## Multi-Cell / Cooperative ISAC
@@ -21,7 +21,7 @@ Multi-cell ISAC enables collaborative sensing across multiple base stations, imp
 
 | [Cooperative ISAC Networks: Opportunities and Challenges](https://arxiv.org/abs/2405.06305) | K. Meng, C. Masouros et al. | IEEE Wireless Commun. | 2024 | — | Comprehensive survey on cooperative ISAC architectures |
 |----------|----------|----------|----------|----------|----------|
-| [Network-Level Integrated Sensing and Communication: Interference Management and BS Coordination Using Stochastic Geometry](https://ieeexplore.ieee.org/document/10596332) | K. Meng et al. | IEEE Trans. Wireless Commun. | 2024 | — | Stochastic geometry analysis for multi-cell ISAC networks |
+| [Network-Level Integrated Sensing and Communication: Interference Management and BS Coordination Using Stochastic Geometry](https://arxiv.org/abs/2311.09052) | K. Meng et al. | IEEE Trans. Wireless Commun. | 2024 | — | Stochastic geometry analysis for multi-cell ISAC networks |
 | [Precoding for Multi-Cell ISAC: From Coordinated Beamforming to CoMP](https://ieeexplore.ieee.org/document/10559061) | N. Babu et al. | IEEE Trans. Wireless Commun. | 2024 | — | Multi-cell precoding from coordinated beamforming to bi-static sensing |
 | [Toward Seamless Sensing Coverage for Cellular Multi-Static ISAC](https://ieeexplore.ieee.org/document/10455899) | R. Li et al. | IEEE Trans. Wireless Commun. | 2024 | — | Coverage optimization for multi-static cellular ISAC |
 | [ISAC Enabled Multiple Base Stations Cooperative Sensing Towards 6G](https://ieeexplore.ieee.org/document/10583163) | Z. Wei et al. | IEEE Network | 2024 | — | Multi-BS cooperative sensing architecture |
@@ -72,7 +72,7 @@ Space-air-ground integration extends ISAC coverage across satellite, aerial, and
 
 Distributed ISAC networks face critical clock-asynchrony challenges that degrade range-Doppler estimation and require joint synchronization-positioning solutions.
 
-| [ACES: Adaptive Clock Estimation and Synchronization Using Kalman Filtering](https://doi.org/10.1145/1409944.1409987) | B. R. Hamilton et al. | ACM MobiCom | 2008 | — | Kalman-filter-based clock synchronization |
+| [ACES: Adaptive Clock Estimation and Synchronization Using Kalman Filtering](https://dl.acm.org/doi/10.1145/1409944.1409987) | B. R. Hamilton et al. | ACM MobiCom | 2008 | — | Kalman-filter-based clock synchronization |
 |----------|----------|----------|----------|----------|----------|
 | [Moving Object Localization in Distributed MIMO with Clock and Frequency Offsets](https://ieeexplore.ieee.org/document/10346883) | Q. Lin et al. | IEEE Sensors J. | 2023 | — | Offset-robust localization in distributed MIMO |
 | [Target Localization in Asynchronous Distributed MIMO Radar Systems](https://ieeexplore.ieee.org/document/9605807) | G. Wen et al. | IEEE Trans. Wireless Commun. | 2022 | — | Cooperative target localization under clock offsets |
