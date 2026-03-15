@@ -1,0 +1,28 @@
+# Default simulation parameters (Table I)
+# Reference: "SNR/CRB-Constrained Joint Beamforming and Reflection Designs for RIS-ISAC Systems"
+# Rang Liu et al., IEEE TWC 2024
+
+system:
+  M: 4           # BS antennas
+  N: 2           # UE antennas
+  d: 2           # data streams per user
+  K: 2           # number of single-antenna users
+  L: 30          # RIS elements (vary 10-50)
+
+power:
+  P_max: 10e-3   # 10 mW maximum transmit power
+
+thresholds:
+  sinr_threshold_dB: 10   # SINR requirement γ_k (dB)
+  snr_min_dB: 5           # SNR sensing threshold γ_min (dB) for detection
+  crb_max: 1e-2           # CRB upper bound ε_max for estimation
+
+channel:
+  bandwidth: 1e6          # 1 MHz
+  noise_power: 3.98e-12   # mW (≈ -84 dBm)
+  rician_factor: 3        # K_R = 3
+
+ao:
+  max_iterations: 50
+  tolerance: 1e-4
+  solver: "MOSEK"         # fallback to SCS if unavailable
