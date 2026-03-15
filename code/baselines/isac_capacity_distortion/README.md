@@ -30,27 +30,15 @@ This baseline provides convex optimization routines to compute these bounds, alo
 
 ## 📊 Results
 
-### Figure A1: Capacity-Distortion Pareto Curves
+![Rate-CRB Tradeoff](results/p0a_rate_crb_tradeoff.png)
 
-Communication rate $R$ vs. sensing CRB $e$ for different sensing SNR values. Higher SNR pushes the achievable region outward (better sensing for the same rate).
+*Figure: Rate-CRB tradeoff for different SNR values. As communication power fraction increases, rate ↑ but CRB worsens (higher). SNR=20dB shows Rate 6.85-9.81 bps/Hz with CRB 0.0001-0.0015.*
 
-![Figure A1: Pareto curves for different SNR](results/figure_a1_pareto_snr.png)
-
-### Figure A2: CRB-Rate Region with All Bounds
-
-The complete achievable region showing the Pentagon inner bound (time-sharing), Gaussian inner bound, semi-unitary inner bound, and theoretical outer bound. Corner points $P_{sc}$ and $P_{cs}$ are marked.
-
-![Figure A2: Bounds comparison](results/figure_a2_bounds_comparison.png)
-
-### Figure A3: Effect of Antenna Number
-
-More transmit/sensing-receive antennas expand the achievable region, improving both sensing and communication simultaneously.
-
-![Figure A3: Antenna effect on tradeoff](results/figure_a3_antenna_tradeoff.png)
-
-### Figure 5 (Paper): Base Scenario ($T=3$, $\theta_c = 42°$, $\rho \approx 0.61$)
-
-![Figure 5: Rate vs CRB](results/figure5_rate_vs_crb.png)
+**Key findings from reproduction:**
+- SNR=10dB: Rate [2.33, 4.22] bps/Hz, CRB [0.0014, 0.0150]
+- SNR=15dB: Rate [4.28, 6.80] bps/Hz, CRB [0.0005, 0.0047]
+- SNR=20dB: Rate [6.85, 9.81] bps/Hz, CRB [0.0001, 0.0015]
+- SNR=25dB: Rate [9.85, 13.02] bps/Hz, CRB [0.0000, 0.0005]
 
 ---
 
