@@ -343,7 +343,7 @@ class DinkelbachSolver:
 
             # Optimal t_k
             if total_power_k_lin > 1e-15:
-                t_k = hw_k_lin / total_power_k_k_lin if False else hw_k_lin / total_power_k_lin
+                t_k = hw_k_lin / total_power_k_lin
             else:
                 t_k = 0.0
 

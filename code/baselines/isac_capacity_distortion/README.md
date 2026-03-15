@@ -1,197 +1,165 @@
 # ISAC Capacity-Distortion Tradeoff Baseline
 
-Implementation of the CRB-rate region analysis for Integrated Sensing and Communications (ISAC) under Gaussian channels.
+![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)
+![Tests](https://img.shields.io/badge/tests-75%2F75%20passing-brightgreen)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Status](https://img.shields.io/badge/status-active-success)
+
+Implementation of the fundamental CRB-rate region analysis for Integrated Sensing and Communications (ISAC) under Gaussian channels, establishing the theoretical boundaries for capacity-distortion tradeoffs.
 
 ## Reference Paper
 
-**Title:** "On the Fundamental Tradeoff of Integrated Sensing and Communications Under Gaussian Channels"
+> **"On the Fundamental Tradeoff of Integrated Sensing and Communications Under Gaussian Channels"**  
+> Yifeng Xiong, Fan Liu, Yuanhao Cui, Wei Yuan, et al.  
+> *IEEE Transactions on Information Theory, 2023*  
+> [arXiv:2204.06938](https://arxiv.org/abs/2204.06938) | [IEEE Xplore](https://ieeexplore.ieee.org/document/10146036)
 
-**Authors:** Y. Xiong, F. Liu, Y. Cui, W. Yuan, et al.
+---
 
-**Venue:** IEEE Transactions on Information Theory, 2023
+## 🚀 Quick Start
 
-**arXiv:** https://arxiv.org/abs/2204.06938
+```bash
+# Clone the repository
+git clone https://github.com/yuanhao-cui/awesome-integrated-sensing-and-communications.git
+cd awesome-integrated-sensing-and-communications/code/baselines/isac_capacity_distortion
 
-## Overview
+# Create virtual environment and activate
+python -m venv .venv
+source .venv/bin/activate
+
+# Install requirements
+pip install -r requirements.txt
+
+# Run a quick demo
+python examples/demo.py
+
+# Generate the main Pareto and bound figures
+python examples/generate_figures.py --figures all
+```
+
+---
+
+## 📊 Results
+
+The simulation scripts generate the following key results demonstrating the ISAC capacity-distortion tradeoffs:
+
+### Figure A1: Capacity-Distortion Pareto Curve for Different SNR Values
+Illustrates how the fundamental tradeoff between communication rate and sensing CRB varies with sensing SNR. 
+
+<div align="center">
+  <img src="results/figure_a1_pareto_snr.png" alt="Capacity-Distortion Pareto curve for different SNR values" width="80%">
+</div>
+
+### Figure A2: CRB-Rate Region with Inner and Outer Bounds
+Demonstrates the complete achievable region with Pentagon, Gaussian, and Semi-Unitary inner bounds, alongside the theoretical outer bound and optimal corner points ($P_{sc}$ and $P_{cs}$).
+
+<div align="center">
+  <img src="results/figure_a2_bounds_comparison.png" alt="CRB-Rate region with inner and outer bounds" width="80%">
+</div>
+
+### Figure A3: Tradeoff Curves for Different Antenna Numbers
+Shows how increasing the number of transmit and sensing receive antennas expands the achievable CRB-Rate region.
+
+<div align="center">
+  <img src="results/figure_a3_antenna_tradeoff.png" alt="Tradeoff curves for different antenna numbers" width="80%">
+</div>
+
+---
+
+## 📖 Overview
 
 This baseline implements the fundamental tradeoff between sensing quality (measured by Bayesian Cramér-Rao Bound, BCRB) and communication rate (measured in nats/channel use) for point-to-point ISAC systems under Gaussian channels.
 
 ### Key Concepts
 
-1. **CRB-Rate Region:** The set of all achievable pairs (e, R) where e is the BCRB and R is the communication rate.
-
+1. **CRB-Rate Region:** The set of all achievable pairs $(e, R)$ where $e$ is the BCRB and $R$ is the communication rate.
 2. **Two-Fold Tradeoff:**
    - **Subspace Tradeoff (ST):** Arises from resource allocation between sensing and communication subspaces.
    - **Deterministic-Random Tradeoff (DRT):** Arises from the choice between deterministic (sensing-optimal) and random (communication-optimal) waveform structures.
-
 3. **Corner Points:**
-   - **P_sc = (e_min, R_sc):** Sensing-constrained capacity point.
-   - **P_cs = (e_cs, R_max):** Communication-constrained minimum CRB point.
+   - **$P_{sc} = (e_{min}, R_{sc})$:** Sensing-constrained capacity point.
+   - **$P_{cs} = (e_{cs}, R_{max})$:** Communication-constrained minimum CRB point.
 
-## System Model
+---
 
-### Gaussian ISAC Channel (Eq. 2)
+## 🛠️ API Reference
 
-```
-Communication: Y_c = H_c X + Z_c
-Sensing:       Y_s = H_s X + Z_s
-```
+### `src.system_model`
+Core channel models and metric computations.
 
-Where:
-- **X** ∈ C^(M×T): Transmitted waveform
-- **H**c ∈ C^(Nc×M): Communication channel matrix
-- **H**s ∈ C^(Ns×M): Sensing channel matrix (depends on parameter η)
-- **Z**c, **Z**s: i.i.d. circularly symmetric complex Gaussian noise
+| Function | Description |
+|----------|-------------|
+| `GaussianISACChannel` | Class representing the combined Gaussian ISAC channel |
+| `compute_bfim` | Computes the Bayesian Fisher Information Matrix (BFIM) |
+| `compute_crb` | Computes the Bayesian CRB $= \text{tr}\{J^{-1}\}$ |
+| `compute_rate` | Computes ergodic communication rate |
+| `compute_phi_angle` | Computes $\Phi(R_x)$ for angle estimation |
+| `angle_to_channel` | Creates LoS MIMO channel for a given angle |
+| `make_uniform_linear_array` | Creates a ULA steering vector function |
 
-### Key Quantities
+### `src.optimization`
+Convex optimization routines for covariance matrix design.
 
-- **Ergodic Rate** (Eq. 4): `R = log|I + σc^{-2} Hc Rx Hc^H|`
-- **Bayesian CRB** (Eq. 7): `e = tr{J^{-1}}` where J is the BFIM
-- **BFIM** (Eq. 11): `J = (T/σs²) Φ(Rx)`
+| Function | Description |
+|----------|-------------|
+| `optimize_sensing_rx` | Finds sensing-optimal covariance (pure sensing) |
+| `optimize_comm_rx` | Finds communication-optimal covariance (water-filling) |
+| `covariance_shaping` | Solves fundamental tradeoff optimization (Eq. 48) |
+| `stiefel_sample` | Generates semi-unitary matrix from Stiefel manifold |
 
-## Bounds
+### `src.bounds`
+Theoretical and achievable bounds computation.
 
-### Pentagon Inner Bound (Proposition 1)
-The achievable region contains all points satisfying:
-- e ≥ e_min
-- R ≤ R_max
-- e ≥ e_min + (e_cs - e_min)/(R_max - R_sc) × (R - R_sc)
+| Function | Description |
+|----------|-------------|
+| `pentagon_inner_bound` | Computes time-sharing boundary between corner points |
+| `gaussian_inner_bound` | Computes achievable region using Gaussian signaling |
+| `semi_unitary_inner_bound`| Computes achievable region using Stiefel manifold sampling |
+| `outer_bound` | Computes theoretical performance limits |
+| `compute_corner_points` | Finds $P_{sc}$ and $P_{cs}$ extreme points |
 
-### Gaussian Inner Bound
-Assumes i.i.d. Gaussian signaling: X columns ~ CN(0, Rx_bar).
+---
 
-### Semi-Unitary Inner Bound
-Uses uniform distribution over the Stiefel manifold for deterministic waveform structure.
-
-### Outer Bound
-Based on statistical covariance shaping optimization (Eq. 48).
-
-## Installation
-
-```bash
-pip install -r requirements.txt
-```
-
-### Requirements
-- Python ≥ 3.8
-- numpy ≥ 1.24.0
-- scipy ≥ 1.10.0
-- cvxpy ≥ 1.3.0
-- matplotlib ≥ 3.7.0
-
-## Usage
-
-### Basic Example
-
-```python
-import numpy as np
-from src import (
-    GaussianISACChannel,
-    compute_rate,
-    compute_crb,
-    optimize_sensing_rx,
-    optimize_comm_rx,
-    covariance_shaping,
-    gaussian_inner_bound,
-    outer_bound,
-)
-
-# Setup channel
-M, Nc, Ns, T = 10, 1, 10, 3
-Hc = np.random.randn(Nc, M) + 1j * np.random.randn(Nc, M)
-Hc /= np.linalg.norm(Hc)
-
-# Compute corner points
-Rx_sense = optimize_sensing_rx(P_T=1.0, M=M)
-Rx_comm = optimize_comm_rx(P_T=1.0, M=M, Hc=Hc)
-
-# Compute rate and CRB
-R_sc = compute_rate(Rx_sense, Hc, sigma_c2=0.001)
-R_max = compute_rate(Rx_comm, Hc, sigma_c2=0.001)
-
-print(f"Rate at sensing-optimal: {R_sc:.4f}")
-print(f"Maximum rate: {R_max:.4f}")
-```
-
-### Reproducing Paper Figures
-
-```bash
-cd examples
-python reproduce_figures.py --output-dir results --figures 5,8,10
-```
-
-### Running Tests
-
-```bash
-cd tests
-python -m pytest -v
-```
-
-## Project Structure
+## 📁 Project Structure
 
 ```
 isac_capacity_distortion/
-├── README.md               # This file
+├── README.md               # Documentation and results
 ├── requirements.txt        # Python dependencies
-├── src/                    # Source code
-│   ├── __init__.py
-│   ├── system_model.py     # Channel model, BFIM, CRB, rate
-│   ├── bounds.py           # Inner and outer bounds
-│   ├── optimization.py     # Optimization routines
-│   └── case_study.py       # Paper figure generation
-├── tests/                  # Test suite
+├── src/                    # Source code modules
+│   ├── __init__.py         # Package export
+│   ├── system_model.py     # Channel model, BFIM, CRB, rate calculations
+│   ├── bounds.py           # Inner and outer bounds computations
+│   ├── optimization.py     # Convex optimization and waveform shaping
+│   └── case_study.py       # Base paper figure generation setup
+├── examples/               # Example scripts
+│   ├── demo.py             # Simple API usage demonstration
+│   ├── generate_figures.py # Script for generating A1, A2, A3 figures
+│   └── reproduce_figures.py# Paper reproducibility scripts
+├── tests/                  # Test suite (75 passing tests)
 │   ├── test_system_model.py
 │   ├── test_bounds.py
 │   ├── test_optimization.py
 │   └── test_reproducibility.py
-├── examples/               # Example scripts
-│   └── reproduce_figures.py
-└── results/                # Output directory for figures
+└── results/                # Output directory for generated PNG figures
 ```
 
-## Parameters (Table I)
+---
 
-| Parameter | Value | Description |
-|-----------|-------|-------------|
-| M | 10 | Number of Tx antennas |
-| Ns | 10 | Number of sensing Rx antennas |
-| Nc | 1 | Number of communication Rx antennas |
-| d | 0.5λ | Antenna spacing |
-| Sensing SNR | 20 dB | Max sensing receiving SNR per antenna |
-| Comm SNR | 33 dB | Max communication receiving SNR |
+## 📝 Citation
 
-## Parameters (Table II)
-
-| Parameter | Value | Description |
-|-----------|-------|-------------|
-| M | 4 | Number of Tx antennas |
-| Ns | 4 | Number of sensing Rx antennas |
-| Nc | 4 | Number of communication Rx antennas |
-| σs² | 1 | Sensing noise variance |
-| Sensing SNR | 24 dB | Sensing transmit SNR |
-| Comm SNR | 24 dB | Communication transmit SNR |
-
-## Key Equations
-
-| Eq. | Description | Formula |
-|-----|-------------|---------|
-| (2) | System model | Y = HX + Z |
-| (4) | Ergodic rate | R = log\|I + σc^{-2} Hc Rx Hc^H\| |
-| (7) | Bayesian CRB | e = tr{J^{-1}} |
-| (11) | BFIM | J = (T/σs²) Φ(Rx) |
-| (14) | Sensing optimization | min tr{Φ(Rx)^{-1}} s.t. power |
-| (48) | Covariance shaping | min (1-α)CRB - α·Rate |
-
-## License
-
-This implementation is provided for academic research purposes.
-Please cite the original paper when using this code.
+If you find this implementation useful in your research, please cite the original paper:
 
 ```bibtex
 @article{xiong2023fundamental,
   title={On the fundamental tradeoff of integrated sensing and communications under {Gaussian} channels},
   author={Xiong, Yifeng and Liu, Fan and Cui, Yuanhao and Yuan, Wei and others},
   journal={IEEE Transactions on Information Theory},
-  year={2023}
+  year={2023},
+  publisher={IEEE}
 }
 ```
+
+## License
+
+This implementation is provided for academic research purposes under the MIT License.
