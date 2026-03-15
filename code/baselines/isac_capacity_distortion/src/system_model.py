@@ -162,13 +162,16 @@ def compute_crb(
         bfim = compute_bfim(Rx, T, sigma_s2, phi_func, Jp)
 
     # Compute tr{J^{-1}} using pseudoinverse for numerical stability
+    # Add small regularization for numerical stability
+    bfim_reg = bfim + 1e-10 * np.eye(bfim.shape[0])
     try:
-        J_inv = np.linalg.inv(bfim)
+        J_inv = np.linalg.inv(bfim_reg)
     except np.linalg.LinAlgError:
-        J_inv = np.linalg.pinv(bfim)
+        J_inv = np.linalg.pinv(bfim_reg)
 
     crb = np.real(np.trace(J_inv))
-    return float(crb)
+    # Ensure non-negative
+    return max(float(crb), 0.0)
 
 
 def compute_rate(
