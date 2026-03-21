@@ -34,6 +34,7 @@ Spatial division leverages MIMO beamforming to serve communication users and per
 
 | Paper | Authors | Venue | Year | Code | Focus |
 |-------|---------|-------|------|------|-------|
+| [Cramer-Rao Bound Optimization for Joint Radar-Communication Design](https://doi.org/10.1109/TSP.2021.3135692) | F. Liu, Y. Liu, A. Li, C. Masouros, Y. Eldar | IEEE TSP | 2022 | [Code](https://github.com/yuanhao-cui/crb-isac-tap-2022) | Proposes CRB minimization subject to per-user SINR constraints via SDR, yielding rank-one solutions. 2024 SPS Best Paper. |
 | [Joint Radar-Communication Transmission: A Generalized Pareto Optimization Framework](https://ieeexplore.ieee.org/document/9414894) | L. Chen et al. | IEEE TSP | 2021 | — | Proposes a Pareto optimization framework for joint radar-communication beamforming, converging in 6-7 iterations under varied SINR constraints. |
 | [Joint Transmit Beamforming for Multiuser MIMO Communications and MIMO Radar](https://ieeexplore.ieee.org/document/9089249) | X. Liu et al. | IEEE TSP | 2020 | — | Develops joint transmit beamforming for multiuser MIMO communication and MIMO radar co-design. |
 | [Joint Transmit Beamforming and Receive Filters Design for Two-Cell Interfering DFRC](https://ieeexplore.ieee.org/document/9843549) | Y. Li, M. Jiang | IEEE TVT | 2022 | — | Addresses multi-cell beamforming for dual-function radar-communication with interference mitigation. |
