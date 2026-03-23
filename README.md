@@ -369,8 +369,9 @@ Each baseline corresponds to a specific published paper with faithful algorithm 
 | [P1-A](code/baselines/ofdm_ambiguity_function/) | OFDM Ambiguity Function | Classic radar theory | 22/22 ✅ | 4 | 📖 [README](code/baselines/ofdm_ambiguity_function/README.md) |
 | [P1-B](code/baselines/ris_isac_beamforming/) | RIS-ISAC Beamforming | Liu et al., IEEE TWC 2024 | 41/41 ✅ | 3 | 📖 [README](code/baselines/ris_isac_beamforming/README.md) |
 | [P1-C](https://github.com/yuanhao-cui/crb-isac-tap-2022) | CRB-ISAC Beamforming | Liu, Liu, Li, Masouros, Eldar, IEEE TSP 2022 | 27/27 ✅ | 2 | 📖 [README](https://github.com/yuanhao-cui/crb-isac-tap-2022) |
+| [P1-D](https://github.com/yuanhao-cui/VFEEL-Joint-Sensing-Communication-and-Computation-for-Vertical-Federated-Edge-Learning) | VFEEL: Vertical Federated Edge Learning | Cao, Wen, Bi, **Cui** et al., IEEE TMC 2026 | 30/30 ✅ | 5 | 📖 [README](https://github.com/yuanhao-cui/VFEEL-Joint-Sensing-Communication-and-Computation-for-Vertical-Federated-Edge-Learning#readme) |
 
-**Total**: 7 baselines · 250+ tests · ~16,000 lines of code
+**Total**: 8 baselines · 280+ tests · ~16,500 lines of code
 
 > All baselines require Python ≥3.10. See [CONTRIBUTING.md](CONTRIBUTING.md) for code standards.
 
