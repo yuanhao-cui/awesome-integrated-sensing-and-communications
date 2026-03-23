@@ -225,13 +225,13 @@ Our survey organizes ISAC research along **five evolutionary axes**:
 
 | Paper | Authors | Venue | Year |
 |-------|---------|-------|------|
-| [ISAC Over the Years: An Evolution Perspective](https://arxiv.org/abs/2504.06830) | D. Zhang, **Y. Cui**, et al. | IEEE COMST | 2026 |
-| [A Survey on Wi-Fi Sensing Generalizability](https://arxiv.org/abs/2503.08008) | F. Wang, ..., **Y. Cui**, F. Liu, ... | IEEE COMST | 2026 |
-| [ISAC: Towards Dual-functional Wireless Networks for 6G](https://ieeexplore.ieee.org/document/9737357) | F. Liu, **Y. Cui**, et al. | IEEE JSAC | 2022 |
-| [Integrated Sensing and Communication: Towards Multifunctional Perceptive Network](https://arxiv.org/abs/2510.14358) | **Y. Cui**, J. Nie, F. Liu, W. Yuan, Z. Feng, X. Jing, Y. Liu, J. Xu, C. Masouros, S. Cui | arXiv / NREE | 2025 |
-| [Seventy Years of Radar and Communications](https://ieeexplore.ieee.org/document/10188491) | F. Liu, ..., **Y. Cui**, et al. | IEEE SPM | 2023 |
-| [An Overview of Signal Processing for JCAS](https://ieeexplore.ieee.org/document/9540344/) | J. A. Zhang, F. Liu, C. Masouros, et al. | IEEE JSTSP | 2021 |
-| [Joint Radar and Communication Design: Applications & Road Ahead](https://ieeexplore.ieee.org/document/8999605) | F. Liu, C. Masouros, et al. | IEEE TCOM | 2020 |
+| [ISAC Over the Years: An Evolution Perspective](https://arxiv.org/abs/2504.06830) | D. Zhang, Y. Cui, X. Cao, N. Su, F. Liu, W. Yuan, X. Jing, J. A. Zhang, J. Xu, C. Masouros, D. Niyato, M. Di Renzo | IEEE COMST | 2026 |
+| [A Survey on Wi-Fi Sensing Generalizability](https://arxiv.org/abs/2503.08008) | F. Wang, T. Zhang, W. Xi, H. Ding, G. Wang, D. Zhang, Y. Cui, F. Liu, J. Han, J. Xu, T. X. Han | IEEE COMST | 2026 |
+| [ISAC: Towards Dual-functional Wireless Networks for 6G](https://ieeexplore.ieee.org/document/9737357) | F. Liu, Y. Cui, C. Masouros, J. Xu, T. X. Han, Y. C. Eldar, S. Buzzi | IEEE JSAC | 2022 |
+| [Integrated Sensing and Communication: Towards Multifunctional Perceptive Network](https://arxiv.org/abs/2510.14358) | Y. Cui, J. Nie, F. Liu, W. Yuan, Z. Feng, X. Jing, Y. Liu, J. Xu, C. Masouros, S. Cui | NREE | 2025 |
+| [Seventy Years of Radar and Communications](https://ieeexplore.ieee.org/document/10188491) | F. Liu, C. Masouros, A. P. Petropulu, H. Griffiths, L. Hanzo | IEEE SPM | 2023 |
+| [An Overview of Signal Processing for JCAS](https://ieeexplore.ieee.org/document/9540344/) | J. A. Zhang, F. Liu, C. Masouros, R. W. Heath, Z. Feng, L. Zheng, A. Petropulu | IEEE JSTSP | 2021 |
+| [Joint Radar and Communication Design: Applications & Road Ahead](https://ieeexplore.ieee.org/document/8999605) | F. Liu, C. Masouros, A. P. Petropulu, L. Hanzo | IEEE TCOM | 2020 |
 
 ### 📡 RF ISAC — Antenna & Waveform
 
