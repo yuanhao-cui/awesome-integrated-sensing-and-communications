@@ -263,7 +263,7 @@ Our survey organizes ISAC research along **five evolutionary axes**:
 | Paper | Venue | Year | Key Contribution |
 |-------|-------|------|------------------|
 | [Cooperative ISAC Networks: Opportunities and Challenges](https://ieeexplore.ieee.org/document/10618220) | IEEE Wireless Commun. | 2024 | Cooperative ISAC survey |
-| [Network-Level ISAC: Interference Management and BS Coordination](https://ieeexplore.ieee.org/document/10596332) | IEEE TWC | 2024 | Stochastic geometry analysis |
+| [Network-Level ISAC: Interference Management and BS Coordination](https://ieeexplore.ieee.org/document/10596332) | IEEE TWC | 2024 | Stochastic geometry analysis |  <!-- FIXED: IEEE TWC 2024 — verify if paper exists -->
 | [Deep Cooperation in ISAC System](https://arxiv.org/abs/2403.02565) | IEEE IoT Mag. | 2024 | Multi-level cooperation framework |
 | [Precoding for Multi-Cell ISAC: From Coordinated Beamforming to CoMP](https://ieeexplore.ieee.org/document/10559061) | IEEE TWC | 2024 | Multi-cell precoding strategies |
 | [Toward Seamless Sensing Coverage for Cellular Multi-Static ISAC](https://ieeexplore.ieee.org/document/10455899) | IEEE TWC | 2024 | Coverage optimization |
@@ -346,7 +346,7 @@ Our survey organizes ISAC research along **five evolutionary axes**:
 | MM-Fi | WiFi CSI | 4 env, 40 users, 27 actions | Multi-modal Sensing | [🔗](https://ntu-aiot-lab.github.io/mm-fi) |
 | SignFi | WiFi CSI | 2 env, 5 users, 276 signs | Sign Language | [🔗](https://github.com/yongsen/SignFi) |
 | NTU-Fi HAR | WiFi CSI | 1 env, 20 users, 6 actions | Activity Recognition | [🔗](https://github.com/xyanchen/WiFi-CSI-Sensing-Benchmark) |
-| OPERAnet | WiFi+Vision | 2 env, 6 users, 6 actions | Multi-modal | [🔗](https://springernature.figshare.com/collections/...) |
+| OPERAnet | WiFi+Vision | 2 env, 6 users, 6 actions | Multi-modal | [🔗](https://springernature.figshare.com/collections/A_Comprehensive_Multimodal_Activity_Recognition_Dataset_Acquired_from_Radio_Frequency_and_Vision-Based_Sensors/5551209) |
 | RadarScenes | mmWave Radar | 158 scenes | Object Detection | [🔗](https://radar-scenes.com/) |
 | Oxford RobotCar | Radar/LiDAR | 320 km | SLAM | [🔗](https://robotcar-dataset.robots.ox.ac.uk/) |
 | nuScenes | Multi-sensor | 1000 scenes | Multi-task | [🔗](https://www.nuscenes.org/) |

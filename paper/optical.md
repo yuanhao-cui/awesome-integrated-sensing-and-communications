@@ -46,7 +46,7 @@ Hybrid RF-optical ISAC architectures combine the high precision and bandwidth of
 
 | [Hybrid Optical Wireless Network for Future SAGO-Integrated Communication Based on FSO/VLC Heterogeneous Interconnection](https://ieeexplore.ieee.org/document/7914388) | Z. Huang et al. | IEEE Photonics J. | 2017 | — | FSO/VLC hybrid network for seamless space-air-ground communication |
 |----------|----------|----------|----------|----------|----------|
-| [On the Hardware-Limited Sensing Parameter Extraction for Integrated Sensing and Communication System Towards 6G](https://ieeexplore.ieee.org/document/10372550) | L. Ma et al. | IEEE ICCT | 2023 | — | Hardware constraints in photonic ISAC systems |
+| [On the Hardware-Limited Sensing Parameter Extraction for Integrated Sensing and Communication System Towards 6G](https://doi.org/10.1109/icct59356.2023.10419792) | L. Ma et al. | IEEE ICCT | 2023 | — | Hardware constraints in photonic ISAC systems |
 | [Photonic-Based W-Band Integrated Sensing and Communication System with Flexible Time-Frequency Division Multiplexed Waveforms](https://ieeexplore.ieee.org/document/10425483) | B. Dong et al. | IEEE/OSA JLT | 2024 | — | TFDM photonic ISAC for fiber-wireless networks |
 
 ---

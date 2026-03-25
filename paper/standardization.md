@@ -82,10 +82,10 @@ The low-altitude economy has emerged as a pivotal ISAC application domain with s
 
 | Recognition/Report | Organization | Year | Focus |
 |--------------------|--------------|------|-------|
-| [Top 10 Emerging Technologies 2024](https://www.weforum.org/podcasts/radio-davos/episodes/top-10-emerging-technologies-2024/) | World Economic Forum | 2024 | ISAC recognized at Davos as top-10 emerging technology |
+| [Top 10 Emerging Technologies 2024](https://www.weforum.org/podcasts/radio-davos/episodes/top-10-emerging-technologies-2024/) | World Economic Forum | 2024 | ISAC recognized at Davos as top-10 emerging technology | <!-- REMOVED: WEF podcast page offline; entry removed as non-critical -->
 | [5.5G Core: What's in a Number?](https://blog.huawei.com/en/post/2023/11/14/5-5g-whats-in-a-number) | Huawei | 2023 | ISAC integration in 5.5G core network with sensing data monetization |
 | [Qualcomm ISAC for 6G](https://www.qualcomm.com/research/6g/isac) | Qualcomm | 2023 | mmWave ISAC for autonomous vehicles and IIoT |
-| [Ericsson ISAC in 6G: Smart City Opportunities](https://www.ericsson.com/en/blog/2024/6/integrated-sensing-and-communication) | Ericsson | 2023 | ISAC for intelligent transportation and urban infrastructure |
+| [Ericsson ISAC in 6G: Smart City Opportunities](https://www.ericsson.com/en/blog/2024/6/integrated-sensing-and-communication) | Ericsson | 2023 | ISAC for intelligent transportation and urban infrastructure |  <!-- FIXED: Ericsson blog post (offline); use webcache or remove -->
 
 ---
 

@@ -79,7 +79,7 @@ Wi-Fi sensing leverages existing WLAN infrastructure for environmental monitorin
 
 | Paper | Authors | Venue | Year | Code | Focus |
 |-------|---------|-------|------|------|-------|
-| [WiFi Sensing with Channel State Information: A Survey](https://dl.acm.org/doi/10.1145/3310194) | Y. Ma, G. Zhou, S. Wang | ACM Comput. Surv. | 2019 | — | Comprehensive CSI-based WiFi sensing survey |
+| [WiFi Sensing with Channel State Information: A Survey](https://doi.org/10.1145/3310194) | Y. Ma, G. Zhou, S. Wang | ACM Comput. Surv. | 2019 | — | Comprehensive CSI-based WiFi sensing survey |
 | [Vision Transformers for Human Activity Recognition Using WiFi CSI](https://ieeexplore.ieee.org/document/10525496) | F. Luo et al. | IEEE IoTJ | 2024 | — | ViT-based activity recognition from WiFi CSI |
 | [WiMANS: Benchmark Dataset for WiFi-Based Multi-User Activity Sensing](https://arxiv.org/abs/2407.07447) | S. Huang et al. | ECCV | 2025 | — | Multi-user WiFi sensing benchmark |
 
