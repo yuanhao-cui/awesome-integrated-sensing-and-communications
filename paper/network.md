@@ -72,7 +72,7 @@ Space-air-ground integration extends ISAC coverage across satellite, aerial, and
 
 Distributed ISAC networks face critical clock-asynchrony challenges that degrade range-Doppler estimation and require joint synchronization-positioning solutions.
 
-| [ACES: Adaptive Clock Estimation and Synchronization Using Kalman Filtering](https://dl.acm.org/doi/10.1145/1409944.1409987) | B. R. Hamilton et al. | ACM MobiCom | 2008 | — | Kalman-filter-based clock synchronization |
+| [ACES: Adaptive Clock Estimation and Synchronization Using Kalman Filtering](https://doi.org/10.1145/1409944.1409987) | B. R. Hamilton et al. | ACM MobiCom | 2008 | — | Kalman-filter-based clock synchronization |
 |----------|----------|----------|----------|----------|----------|
 | [Moving Object Localization in Distributed MIMO with Clock and Frequency Offsets](https://ieeexplore.ieee.org/document/10346883) | Q. Lin et al. | IEEE Sensors J. | 2023 | — | Offset-robust localization in distributed MIMO |
 | [Target Localization in Asynchronous Distributed MIMO Radar Systems](https://ieeexplore.ieee.org/document/9605807) | G. Wen et al. | IEEE Trans. Wireless Commun. | 2022 | — | Cooperative target localization under clock offsets |

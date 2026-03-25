@@ -52,7 +52,7 @@ The survey [Zhang et al., IEEE COMST, 2026](https://arxiv.org/abs/2504.06830) sy
 | [Radar and Communication Coexistence: An Overview](https://ieeexplore.ieee.org/document/8828016) | L. Zheng, M. Lops, Y. C. Eldar, X. Wang | IEEE SPM | 2019 | — | Reviews radar-communication coexistence methods for spectrum sharing including resource allocation, interference management, and waveform co-design. |
 | [ISAC Enabled Multiple Base Stations Cooperative Sensing Towards 6G](https://ieeexplore.ieee.org/document/10583163) | Z. Wei et al. | IEEE Network | 2024 | — | Explores multi-cell ISAC cooperative sensing networks, covering interference management, cooperative beamforming, and multi-BS coordination strategies. |
 | [Deep Cooperation in ISAC System: Resource, Node and Infrastructure Perspectives](https://ieeexplore.ieee.org/document/10618220) | Z. Wei et al. | IEEE IoT Mag. | 2024 | — | Surveys resource-level, node-level, and infrastructure-level cooperation strategies in ISAC networks for enhanced multi-dimensional performance. |
-| [WiFi Sensing with Channel State Information: A Survey](https://dl.acm.org/doi/10.1145/3310194) | Y. Ma, G. Zhou, S. Wang | ACM Comput. Surv. | 2019 | — | Comprehensive review of Wi-Fi sensing using CSI, covering detection, recognition, and estimation applications with signal processing algorithms. |
+| [WiFi Sensing with Channel State Information: A Survey](https://doi.org/10.1145/3310194) | Y. Ma, G. Zhou, S. Wang | ACM Comput. Surv. | 2019 | — | Comprehensive review of Wi-Fi sensing using CSI, covering detection, recognition, and estimation applications with signal processing algorithms. |
 
 ---
 

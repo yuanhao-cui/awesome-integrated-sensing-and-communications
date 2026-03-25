@@ -1,26 +1,86 @@
-name: Check Links
+name: 🔗 Link Health Check
 
 on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
   schedule:
-    - cron: "0 0 * * 0"  # Weekly on Sunday
+    - cron: "0 0 * * 0"   # Weekly every Sunday midnight UTC
   workflow_dispatch:
 
 jobs:
-  link-check:
+  lychee-link-check:
+    name: Lychee Link Checker
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Link Checker
+      - name: Cache lychee results
+        uses: actions/cache@v4
+        with:
+          path: .lychee-cache
+          key: lychee-${{ github.sha }}
+          restore-keys: |
+            lychee-
+
+      - name: Run lychee
         uses: lycheeverse/lychee-action@v1
         with:
-          args: --verbose --no-progress README.md paper/*.md datasets/*.md tools/*.md
-          fail: false  # Don't fail on broken links, just report
+          args: >-
+            --verbose
+            --no-progress
+            --cache
+            --max-cache-age 7d
+            --header "User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            --timeout 20
+            --retry-interval 200
+            README.md
+            paper/*.md
+            datasets/*.md
+            tools/*.md
+            benchmark/*.md
+          fail: true
 
-      - name: Create issue if broken links found
-        if: steps.lychee.outputs.exit_code != 0
-        uses: peter-evans/create-issue-from-file@v4
+      - name: Upload lychee report
+        if: always()
+        uses: actions/upload-artifact@v4
         with:
-          title: "🔗 Broken Links Detected"
-          content-filepath: ./lychee/out.md
-          labels: maintenance
+          name: lychee-report
+          path: lychee/out.md
+          retention-days: 30
+
+  python-link-check:
+    name: Python Link Checker (supplementary)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install deps
+        run: pip install pytest requests
+
+      - name: Run pytest link tests
+        run: pytest tests/test_links.py::TestLinkReachability -v --tb=short
+
+  content-correspondence:
+    name: Content Correspondence (sampling)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install deps
+        run: pip install pytest requests
+
+      - name: Run content match tests
+        run: pytest tests/test_links.py::TestContentCorrespondence -v --tb=short
+        env:
+          # CI: fixed seed for reproducible sampling
+          PYTHONHASHSEED: "42"
